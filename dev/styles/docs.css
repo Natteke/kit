@@ -1,0 +1,23 @@
+.docs {
+
+}
+
+.wrapper {
+    composes: wrapper from './main.css';
+}
+
+.docsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.docsAside {
+    width: 30%;
+}
+
+.docsOutput {
+    width: 70%;
+    padding-left: 50px;
+}

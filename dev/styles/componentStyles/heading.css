@@ -1,0 +1,27 @@
+.headingOuter {
+    background-color: rgba(0,0,0,.03);
+}
+
+.headingContainer {
+    composes: light from '../main.css';
+    padding: 25px 0;
+    position: relative;
+}
+
+.wrapper {
+    composes: wrapper from '../main.css';
+}
+
+.heading {
+    font-weight: 300;
+    font-size: 2.7rem;
+    margin-bottom: 5px;
+}
+
+.headingVersion {
+    color: rgba(0,0,0, .4);
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 0.7rem;
+}

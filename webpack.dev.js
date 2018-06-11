@@ -5,31 +5,55 @@ let path = require('path'),
 		dist: __dirname + '/dist/',
 		production: __dirname + '/production/'
 	},
-	htmlWebpackConfig = require('./htmlwebpackplugin.config')(common);
+	htmGeneratorConfig = require('./htmlwebpackplugin.config')(common);
 
 
 module.exports = {
-	mode: common.mode,
+	mode: 'development',
 	entry: {
 		'home': common.dev + 'home.js',
 		'modal/modal': common.dev + 'modal/modal.js',
-		'modal/docs/docs': common.dev + 'modal/docs/docs.js'
+		'modal/docs/docs': common.dev + 'modal/docs/docs.js',
+		'modal/demos/demos': common.dev + 'modal/demos/demos.js'
 	},
 	output: {
 		path: common.dist,
-		filename: '[name].js'
+		filename: '[name].js',
+		chunkFilename: 'chunks/[id].js',
+		publicPath: common.dist
+	},
+	devServer: {
+		contentBase: common.dist,
 	},
 	module: {
-		rules: [{
-			test: /\.js$/,
-			include: common.dev,
-			loader: "babel-loader",
-			query: {
-				presets:['react', 'es2015', 'stage-2']
+		rules: [
+			{
+				test: /\.js$/,
+				include: common.dev,
+				loader: "babel-loader",
+				query: {
+					presets:['react', 'es2015', 'stage-2']
+				}
+			},
+			{
+				test: /\.css$/,
+				include: common.dev,
+				loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+			},
+			{
+				test: /\.(woff|woff2)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'styles/fonts/[name].[ext]'
+						}
+					}
+				]
 			}
-		}]
+		]
 	},
 	plugins: [
 
-	].concat(htmlWebpackConfig),
+	].concat(htmGeneratorConfig),
 };
