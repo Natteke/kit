@@ -8,8 +8,13 @@ import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/docs.css'
 
 
-const News = AsyncComponent(() =>  import('./items/News.js'));
-const Installation = AsyncComponent(() =>  import('./items/Installation.js'));
+let News = AsyncComponent(() =>  import('./items/News.js'));
+let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
+
+let items = {
+	News: <News/>,
+	Installation: <Installation/>
+};
 
 let list = [
 	{
@@ -18,16 +23,10 @@ let list = [
 
 	},
 	{
-		name: 'Getting Started',
+		name: 'Backing Backed',
 		items: ['News','Installation']
 
 	}
-];
-
-
-let asideLinks = [
-	['News','news'],
-	['Installation','installation']
 ];
 
 
@@ -38,6 +37,12 @@ class Docs extends React.Component {
 			output: <News/>
 		}
 	}
+
+	handleClick = (e) => {
+		this.setState({
+			output: items[e.currentTarget.innerHTML]
+		})
+	};
 
 	render() {
 		return (
@@ -50,7 +55,7 @@ class Docs extends React.Component {
 					<div className={s.wrapper}>
 						<div className={s.docsContainer}>
 							<div className={s.docsAside}>
-								<Aside list={list}/>
+								<Aside onItemClick={this.handleClick} list={list}/>
 							</div>
 							<div className={s.docsOutput}>
 								{this.state.output}
