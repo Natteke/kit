@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import config from '../section.config.js'
-import '../../components/defaults.js';
 import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/docs.css'
-import a from '../../styles/componentStyles/aside.css';
 
 
 
@@ -24,12 +22,7 @@ let list = [
 		name: 'Getting Started',
 		items: ['News','Installation']
 
-	},
-	// {
-	// 	name: 'Backing Backed',
-	// 	items: ['News','Installation']
-	//
-	// }
+	}
 ];
 
 

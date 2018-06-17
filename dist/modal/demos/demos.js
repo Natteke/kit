@@ -1,6 +1,50 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"modal/demos/demos": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "chunks/" + chunkId + ".js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +70,65 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var head = document.getElementsByTagName('head')[0];
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -79,12 +182,46 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/Users/andrejponomarenko/Projects/kit/dist/";
 /******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = "./dev/modal/demos/demos.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./dev/components/Aside.js":
+/*!*********************************!*\
+  !*** ./dev/components/Aside.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _aside = __webpack_require__(/*! ../styles/componentStyles/aside.css */ \"./dev/styles/componentStyles/aside.css\");\n\nvar _aside2 = _interopRequireDefault(_aside);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Aside = function (_React$Component) {\n\t_inherits(Aside, _React$Component);\n\n\tfunction Aside(props) {\n\t\t_classCallCheck(this, Aside);\n\n\t\tvar _this = _possibleConstructorReturn(this, (Aside.__proto__ || Object.getPrototypeOf(Aside)).call(this, props));\n\n\t\t_this.state = {};\n\t\treturn _this;\n\t}\n\n\t_createClass(Aside, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\tvar _this2 = this;\n\n\t\t\tvar active = void 0;\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'aside',\n\t\t\t\t{ className: _aside2.default.aside },\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'div',\n\t\t\t\t\t{ className: _aside2.default.asideInner },\n\t\t\t\t\tthis.props.list.map(function (e) {\n\t\t\t\t\t\treturn _react2.default.createElement(\n\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t{ key: 'AsideSection_' + e.name, className: _aside2.default.asideSection },\n\t\t\t\t\t\t\te.name && _react2.default.createElement(\n\t\t\t\t\t\t\t\t'h3',\n\t\t\t\t\t\t\t\tnull,\n\t\t\t\t\t\t\t\te.name\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'ul',\n\t\t\t\t\t\t\t\t{ className: _aside2.default.asideList },\n\t\t\t\t\t\t\t\te.items.map(function (z) {\n\t\t\t\t\t\t\t\t\tactive = z === _this2.props.active ? _aside2.default.asideListItemActive : null;\n\t\t\t\t\t\t\t\t\treturn _react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t'li',\n\t\t\t\t\t\t\t\t\t\t{ onClick: _this2.props.onItemClick,\n\t\t\t\t\t\t\t\t\t\t\tkey: 'Aside_' + z,\n\t\t\t\t\t\t\t\t\t\t\tclassName: [_aside2.default.asideListItem, active].join(' ') },\n\t\t\t\t\t\t\t\t\t\tz\n\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t})\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn Aside;\n}(_react2.default.Component);\n\nexports.default = Aside;\n\n//# sourceURL=webpack:///./dev/components/Aside.js?");
+
+/***/ }),
+
+/***/ "./dev/components/AsyncComponent.js":
+/*!******************************************!*\
+  !*** ./dev/components/AsyncComponent.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar asyncComponent = function asyncComponent(importComponent) {\n\treturn function (_Component) {\n\t\t_inherits(_class2, _Component);\n\n\t\tfunction _class2() {\n\t\t\tvar _ref;\n\n\t\t\tvar _temp, _this, _ret;\n\n\t\t\t_classCallCheck(this, _class2);\n\n\t\t\tfor (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {\n\t\t\t\targs[_key] = arguments[_key];\n\t\t\t}\n\n\t\t\treturn _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref, [this].concat(args))), _this), _this.state = {\n\t\t\t\tcomponent: null\n\t\t\t}, _temp), _possibleConstructorReturn(_this, _ret);\n\t\t}\n\n\t\t_createClass(_class2, [{\n\t\t\tkey: 'componentDidMount',\n\t\t\tvalue: function componentDidMount() {\n\t\t\t\tvar _this2 = this;\n\n\t\t\t\timportComponent().then(function (cmp) {\n\t\t\t\t\t_this2.setState({ component: cmp.default });\n\t\t\t\t});\n\t\t\t}\n\t\t}, {\n\t\t\tkey: 'render',\n\t\t\tvalue: function render() {\n\t\t\t\tvar C = this.state.component;\n\t\t\t\treturn C ? _react2.default.createElement(C, this.props) : null;\n\t\t\t}\n\t\t}]);\n\n\t\treturn _class2;\n\t}(_react.Component);\n};\n\nexports.default = asyncComponent;\n\n//# sourceURL=webpack:///./dev/components/AsyncComponent.js?");
+
+/***/ }),
 
 /***/ "./dev/components/Header.js":
 /*!**********************************!*\
@@ -94,7 +231,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _main = __webpack_require__(/*! ../styles/main.css */ \"./dev/styles/main.css\");\n\nvar _main2 = _interopRequireDefault(_main);\n\nvar _header = __webpack_require__(/*! ../styles/componentStyles/header.css */ \"./dev/styles/componentStyles/header.css\");\n\nvar _header2 = _interopRequireDefault(_header);\n\nvar _Hamburger = __webpack_require__(/*! ../styles/componentStyles/btn/Hamburger.css */ \"./dev/styles/componentStyles/btn/Hamburger.css\");\n\nvar _Hamburger2 = _interopRequireDefault(_Hamburger);\n\nvar _Hamburger3 = __webpack_require__(/*! ./btn/Hamburger.js */ \"./dev/components/btn/Hamburger.js\");\n\nvar _Hamburger4 = _interopRequireDefault(_Hamburger3);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar timer = void 0;\n\nvar Header = function (_React$Component) {\n\t_inherits(Header, _React$Component);\n\n\tfunction Header(props) {\n\t\t_classCallCheck(this, Header);\n\n\t\tvar _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));\n\n\t\t_this.handleClick = function () {\n\t\t\t_this.setState({ navOpen: !_this.state.navOpen });\n\t\t};\n\n\t\t_this.handleBlur = function (e) {\n\t\t\tif (e.relatedTarget && e.relatedTarget.nodeName === 'A') return e.target.focus();\n\t\t\ttimer = setTimeout(function () {\n\t\t\t\t_this.setState({\n\t\t\t\t\tnavOpen: false\n\t\t\t\t});\n\t\t\t}, 0);\n\t\t};\n\n\t\t_this.handleFocus = function (e) {\n\t\t\treturn clearTimeout(timer);\n\t\t};\n\n\t\t_this.state = {\n\t\t\tnavOpen: false\n\t\t};\n\t\treturn _this;\n\t}\n\n\t_createClass(Header, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\tvar navStyle = this.state.navOpen ? [_header2.default.headerContainer, _header2.default.headerNavActive].join(' ') : _header2.default.headerContainer;\n\t\t\tvar hamburgerActive = this.state.navOpen ? _Hamburger2.default.hamburgerActive : '';\n\n\t\t\tvar links = this.props.links.map(function (e) {\n\t\t\t\treturn _react2.default.createElement(\n\t\t\t\t\t'a',\n\t\t\t\t\t{ key: 'header_' + e.name,\n\t\t\t\t\t\tdownload: e.download,\n\t\t\t\t\t\thref: e.href,\n\t\t\t\t\t\tclassName: _header2.default.headerNavItem\n\t\t\t\t\t},\n\t\t\t\t\te.name\n\t\t\t\t);\n\t\t\t});\n\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\t{ className: _header2.default.headerOuterContainer },\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'header',\n\t\t\t\t\t{ className: _header2.default.header },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\t{ className: _header2.default.wrapper },\n\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t{ className: navStyle },\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _header2.default.headerHamburgerContainer },\n\t\t\t\t\t\t\t\t_react2.default.createElement(_Hamburger4.default, { active: hamburgerActive,\n\t\t\t\t\t\t\t\t\tstyles: _Hamburger2.default,\n\t\t\t\t\t\t\t\t\tonClick: this.handleClick,\n\t\t\t\t\t\t\t\t\tonBlur: this.handleBlur,\n\t\t\t\t\t\t\t\t\tonFocus: this.handleFocus\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _header2.default.headerNavContainer },\n\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t'nav',\n\t\t\t\t\t\t\t\t\t{ className: _header2.default.headerNav },\n\t\t\t\t\t\t\t\t\tlinks\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn Header;\n}(_react2.default.Component);\n\nexports.default = Header;\n\n//# sourceURL=webpack:///./dev/components/Header.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _main = __webpack_require__(/*! ../styles/main.css */ \"./dev/styles/main.css\");\n\nvar _main2 = _interopRequireDefault(_main);\n\nvar _header = __webpack_require__(/*! ../styles/componentStyles/header.css */ \"./dev/styles/componentStyles/header.css\");\n\nvar _header2 = _interopRequireDefault(_header);\n\nvar _Hamburger = __webpack_require__(/*! ./btn/Hamburger.js */ \"./dev/components/btn/Hamburger.js\");\n\nvar _Hamburger2 = _interopRequireDefault(_Hamburger);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar timer = void 0;\n\nvar Header = function (_React$Component) {\n\t_inherits(Header, _React$Component);\n\n\tfunction Header(props) {\n\t\t_classCallCheck(this, Header);\n\n\t\tvar _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));\n\n\t\t_this.handleClick = function () {\n\t\t\t_this.setState({ navOpen: !_this.state.navOpen });\n\t\t};\n\n\t\t_this.handleBlur = function (e) {\n\t\t\tif (e.relatedTarget && e.relatedTarget.nodeName === 'A') return e.target.focus();\n\t\t\ttimer = setTimeout(function () {\n\t\t\t\t_this.setState({\n\t\t\t\t\tnavOpen: false\n\t\t\t\t});\n\t\t\t}, 0);\n\t\t};\n\n\t\t_this.handleFocus = function (e) {\n\t\t\treturn clearTimeout(timer);\n\t\t};\n\n\t\t_this.state = {\n\t\t\tnavOpen: false\n\t\t};\n\t\treturn _this;\n\t}\n\n\t_createClass(Header, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\tvar navStyle = this.state.navOpen ? [_header2.default.headerContainer, _header2.default.headerNavActive].join(' ') : _header2.default.headerContainer;\n\t\t\tvar hamburgerActive = this.state.navOpen ? h.hamburgerActive : '';\n\n\t\t\tvar links = this.props.links.map(function (e) {\n\t\t\t\treturn _react2.default.createElement(\n\t\t\t\t\t'a',\n\t\t\t\t\t{ key: 'header_' + e.name,\n\t\t\t\t\t\tdownload: e.download,\n\t\t\t\t\t\thref: e.href,\n\t\t\t\t\t\tclassName: _header2.default.headerNavItem },\n\t\t\t\t\te.name\n\t\t\t\t);\n\t\t\t});\n\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\t{ className: _header2.default.headerOuterContainer },\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'header',\n\t\t\t\t\t{ className: _header2.default.header },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\t{ className: _header2.default.wrapper },\n\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t{ className: navStyle },\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _header2.default.headerHamburgerContainer },\n\t\t\t\t\t\t\t\t_react2.default.createElement(_Hamburger2.default, { active: hamburgerActive,\n\t\t\t\t\t\t\t\t\tonClick: this.handleClick,\n\t\t\t\t\t\t\t\t\tonBlur: this.handleBlur,\n\t\t\t\t\t\t\t\t\tonFocus: this.handleFocus\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'a',\n\t\t\t\t\t\t\t\t{ href: this.props.git, className: _header2.default.headerGitContainer },\n\t\t\t\t\t\t\t\t_react2.default.createElement('img', { src: 'https://shanetarr.com/wp-content/uploads/2017/08/github-desktop-icon.png', alt: '' }),\n\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t'p',\n\t\t\t\t\t\t\t\t\tnull,\n\t\t\t\t\t\t\t\t\t'Find\\xA0me\\xA0on\\xA0GitHub'\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _header2.default.headerNavContainer },\n\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t'nav',\n\t\t\t\t\t\t\t\t\t{ className: _header2.default.headerNav },\n\t\t\t\t\t\t\t\t\tlinks\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn Header;\n}(_react2.default.Component);\n\nexports.default = Header;\n\n//# sourceURL=webpack:///./dev/components/Header.js?");
+
+/***/ }),
+
+/***/ "./dev/components/Heading.js":
+/*!***********************************!*\
+  !*** ./dev/components/Heading.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _heading = __webpack_require__(/*! ../styles/componentStyles/heading.css */ \"./dev/styles/componentStyles/heading.css\");\n\nvar _heading2 = _interopRequireDefault(_heading);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Heading = function Heading(props) {\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\t{ className: _heading2.default.headingOuter },\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\t{ className: _heading2.default.wrapper },\n\t\t\t_react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\t{ className: _heading2.default.headingContainer },\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'h1',\n\t\t\t\t\t{ className: _heading2.default.heading },\n\t\t\t\t\tprops.heading\n\t\t\t\t),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'p',\n\t\t\t\t\t{ className: _heading2.default.headingVersion },\n\t\t\t\t\tprops.version\n\t\t\t\t)\n\t\t\t)\n\t\t)\n\t);\n};\n\nexports.default = Heading;\n\n//# sourceURL=webpack:///./dev/components/Heading.js?");
 
 /***/ }),
 
@@ -106,7 +255,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Hamburger = function Hamburger(props) {\n\tvar s = props.styles;\n\tvar active = props.active ? [props.active, s.hamburger].join(' ') : s.hamburger;\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\t{ className: active,\n\t\t\tonClick: props.onClick,\n\t\t\tonBlur: props.onBlur,\n\t\t\tonFocus: props.onFocus,\n\t\t\ttabIndex: 0\n\t\t},\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\t{ className: s.hamburgerInner },\n\t\t\t_react2.default.createElement('div', { className: s.hamburgerLine }),\n\t\t\t_react2.default.createElement('div', { className: s.hamburgerLine }),\n\t\t\t_react2.default.createElement('div', { className: s.hamburgerLine })\n\t\t)\n\t);\n};\n\nexports.default = Hamburger;\n\n//# sourceURL=webpack:///./dev/components/btn/Hamburger.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Hamburger = __webpack_require__(/*! ../../styles/componentStyles/btn/Hamburger.css */ \"./dev/styles/componentStyles/btn/Hamburger.css\");\n\nvar _Hamburger2 = _interopRequireDefault(_Hamburger);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Hamburger = function Hamburger(props) {\n\tvar active = props.active ? [props.active, _Hamburger2.default.hamburger].join(' ') : _Hamburger2.default.hamburger;\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\t{ className: active,\n\t\t\tonClick: props.onClick,\n\t\t\tonBlur: props.onBlur,\n\t\t\tonFocus: props.onFocus,\n\t\t\ttabIndex: 0\n\t\t},\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\t{ className: _Hamburger2.default.hamburgerInner },\n\t\t\t_react2.default.createElement('div', { className: _Hamburger2.default.hamburgerLine }),\n\t\t\t_react2.default.createElement('div', { className: _Hamburger2.default.hamburgerLine }),\n\t\t\t_react2.default.createElement('div', { className: _Hamburger2.default.hamburgerLine })\n\t\t)\n\t);\n};\n\nexports.default = Hamburger;\n\n//# sourceURL=webpack:///./dev/components/btn/Hamburger.js?");
 
 /***/ }),
 
@@ -118,7 +267,30 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _Header = __webpack_require__(/*! ../../components/Header.js */ \"./dev/components/Header.js\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Demos = function (_React$Component) {\n\t_inherits(Demos, _React$Component);\n\n\tfunction Demos() {\n\t\t_classCallCheck(this, Demos);\n\n\t\treturn _possibleConstructorReturn(this, (Demos.__proto__ || Object.getPrototypeOf(Demos)).apply(this, arguments));\n\t}\n\n\t_createClass(Demos, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t_react2.default.createElement(_Header2.default, null),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'p',\n\t\t\t\t\tnull,\n\t\t\t\t\t'Demos'\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn Demos;\n}(_react2.default.Component);\n\nvar output = document.body.children.output;\n_reactDom2.default.render(_react2.default.createElement(Demos, null), output);\n\n//# sourceURL=webpack:///./dev/modal/demos/demos.js?");
+eval("\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _sectionConfig = __webpack_require__(/*! ../section.config.js */ \"./dev/modal/section.config.js\");\n\nvar _sectionConfig2 = _interopRequireDefault(_sectionConfig);\n\nvar _Header = __webpack_require__(/*! ../../components/Header.js */ \"./dev/components/Header.js\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nvar _Heading = __webpack_require__(/*! ../../components/Heading.js */ \"./dev/components/Heading.js\");\n\nvar _Heading2 = _interopRequireDefault(_Heading);\n\nvar _Aside = __webpack_require__(/*! ../../components/Aside.js */ \"./dev/components/Aside.js\");\n\nvar _Aside2 = _interopRequireDefault(_Aside);\n\nvar _AsyncComponent = __webpack_require__(/*! ../../components/AsyncComponent.js */ \"./dev/components/AsyncComponent.js\");\n\nvar _AsyncComponent2 = _interopRequireDefault(_AsyncComponent);\n\nvar _docs = __webpack_require__(/*! ../../styles/docs.css */ \"./dev/styles/docs.css\");\n\nvar _docs2 = _interopRequireDefault(_docs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Basic = (0, _AsyncComponent2.default)(function () {\n\treturn __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./items/basic.js */ \"./dev/modal/demos/items/basic.js\", 7));\n});\n\nvar items = {\n\tNews: _react2.default.createElement(News, null),\n\tInstallation: _react2.default.createElement(Installation, null)\n};\n\nvar list = [{\n\titems: ['Basic', 'External Link']\n\n}];\n\nvar Docs = function (_React$Component) {\n\t_inherits(Docs, _React$Component);\n\n\tfunction Docs(props) {\n\t\t_classCallCheck(this, Docs);\n\n\t\tvar _this = _possibleConstructorReturn(this, (Docs.__proto__ || Object.getPrototypeOf(Docs)).call(this, props));\n\n\t\t_this.handleClick = function (e) {\n\t\t\tvar i = e.currentTarget.innerHTML;\n\t\t\t_this.setState({\n\t\t\t\toutput: items[i],\n\t\t\t\tasideActive: i\n\t\t\t});\n\t\t};\n\n\t\t_this.state = {\n\t\t\toutput: _react2.default.createElement(News, null),\n\t\t\tasideActive: 'News'\n\t\t};\n\t\treturn _this;\n\t}\n\n\t_createClass(Docs, [{\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\tnull,\n\t\t\t\t_react2.default.createElement(_Header2.default, { links: _sectionConfig2.default.headerLinks, git: _sectionConfig2.default.git }),\n\t\t\t\t_react2.default.createElement(_Heading2.default, {\n\t\t\t\t\theading: 'Demos',\n\t\t\t\t\tversion: _sectionConfig2.default.version }),\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'section',\n\t\t\t\t\t{ className: _docs2.default.docs },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\t{ className: _docs2.default.wrapper },\n\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t{ className: _docs2.default.docsContainer },\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _docs2.default.docsAside },\n\t\t\t\t\t\t\t\t_react2.default.createElement(_Aside2.default, { active: this.state.asideActive, onItemClick: this.handleClick, list: list })\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t{ className: _docs2.default.docsOutput },\n\t\t\t\t\t\t\t\tthis.state.output\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn Docs;\n}(_react2.default.Component);\n\nvar output = document.body.children.output;\n_reactDom2.default.render(_react2.default.createElement(Docs, null), output);\n\n//# sourceURL=webpack:///./dev/modal/demos/demos.js?");
+
+/***/ }),
+
+/***/ "./dev/modal/section.config.js":
+/*!*************************************!*\
+  !*** ./dev/modal/section.config.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar config = {\n\t// [2] true -> download (y/n)\n\theaderLinks: [{\n\t\tname: 'Home',\n\t\thref: '/',\n\t\tdownload: false\n\t}, {\n\t\tname: 'About',\n\t\thref: '/modal',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Demos',\n\t\thref: '/modal/demos',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Docs',\n\t\thref: '/modal/docs',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Download',\n\t\thref: '/modal/download',\n\t\tdownload: true\n\t}],\n\tversion: 'Kit Modal v1.1.0',\n\tgit: 'https://github.com/Natteke/kit.modal'\n};\n\nexports.default = config;\n\n//# sourceURL=webpack:///./dev/modal/section.config.js?");
+
+/***/ }),
+
+/***/ "./dev/styles/componentStyles/aside.css":
+/*!**********************************************!*\
+  !*** ./dev/styles/componentStyles/aside.css ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./aside.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/aside.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/aside.css?");
 
 /***/ }),
 
@@ -141,6 +313,28 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-load
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./header.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/header.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/header.css?");
+
+/***/ }),
+
+/***/ "./dev/styles/componentStyles/heading.css":
+/*!************************************************!*\
+  !*** ./dev/styles/componentStyles/heading.css ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./heading.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/heading.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/heading.css?");
+
+/***/ }),
+
+/***/ "./dev/styles/docs.css":
+/*!*****************************!*\
+  !*** ./dev/styles/docs.css ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./docs.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/docs.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./dev/styles/docs.css?");
 
 /***/ }),
 
@@ -221,6 +415,17 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader?mod
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/aside.css":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/aside.css ***!
+  \*************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".aside__aside___qvCqu {\\n    width: 100%;\\n}\\n\\n.aside__asideInner___26CE2 {\\n    display: flex;\\n    flex-direction: column;\\n}\\n\\n.aside__asideSection___13UBm {\\n    display: flex;\\n    flex-direction: column;\\n    align-items: flex-end;\\n}\\n\\n.aside__asideSection___13UBm h3 {\\n    text-align: right;\\n    width: 100%;\\n    font-size: 1.1rem;\\n    text-transform: uppercase;\\n}\\n\\n.aside__asideList___1kgRC {\\n    width: 100%;\\n    margin-bottom: 20px;\\n}\\n\\n.aside__asideListItem___1cru2 {\\n    padding: 15px 0;\\n    padding-right: 40px;\\n    font-size: 1.1rem;\\n    text-align: right;\\n    transition: all 0.2s ease-in-out;\\n    cursor: pointer;\\n}\\n.aside__asideListItem___1cru2:hover,\\n.aside__asideListItemActive___3h8c-,\\n.aside__asideListItem___1cru2:focus {\\n    background-color: rgba(0,0,0,.03);\\n}\\n\\n.aside__asideListItemActive___3h8c- {\\n    padding-right: 20px;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"aside\": \"aside__aside___qvCqu\",\n\t\"asideInner\": \"aside__asideInner___26CE2\",\n\t\"asideSection\": \"aside__asideSection___13UBm\",\n\t\"asideList\": \"aside__asideList___1kgRC\",\n\t\"asideListItem\": \"aside__asideListItem___1cru2\",\n\t\"asideListItemActive\": \"aside__asideListItemActive___3h8c-\"\n};\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/aside.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/btn/Hamburger.css":
 /*!*********************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/btn/Hamburger.css ***!
@@ -239,7 +444,29 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../../node_module
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\nexports.i(__webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\"), undefined);\n\n// module\nexports.push([module.i, \".header__headerOuterContainer___21gQM {\\n    height: 60px;\\n    width: 100%;\\n}\\n\\n.header__header___3gG0p {\\n    position: fixed;\\n    left: 0;\\n    right: 0;\\n    top: 0;\\n    background-color: deepskyblue;\\n}\\n\\n.header__wrapper___3qtjf {\\n}\\n\\n.header__headerContainer___2k2FU {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: center;\\n    height: 60px;\\n}\\n\\n.header__headerHamburgerContainer___1lUKG {\\n    display: none;\\n}\\n\\n.header__headerNavContainer___3B8N0 {\\n    flex-grow: 1;\\n    max-width: 500px;\\n    height: 100%;\\n    margin-left: auto;\\n    display: flex;\\n}\\n\\n.header__headerNav___Dhjtg {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: stretch;\\n    margin-left: auto;\\n}\\n\\n.header__headerNavItem___j1dWn {\\n    display: flex;\\n    align-items: center;\\n    color: #333333;\\n    text-decoration: none;\\n    margin-left: 20px;\\n    padding-left: 10px;\\n}\\n\\n.header__headerNavItem___j1dWn:not(:last-child) {\\n    padding-right: 10px;\\n}\\n\\n@media (max-width: 500px) {\\n    .header__headerHamburgerContainer___1lUKG {\\n        display: block;\\n    }\\n\\n    .header__headerNavContainer___3B8N0 {\\n        position: fixed;\\n        left: 0;\\n        right: 0;\\n        top: 100%;\\n        bottom: 0;\\n        background-color: rgba(0,0,0, .7);\\n        margin-left: 0;\\n        max-width: none;\\n        height: auto;\\n        transition: all 0.2s ease-in-out;\\n    }\\n\\n    .header__headerNav___Dhjtg {\\n        flex-direction: column;\\n        justify-content: flex-start;\\n        align-items: flex-start;\\n        margin-left: 0;\\n        padding-top: 20px;\\n    }\\n\\n    .header__headerNavItem___j1dWn {\\n        font-size: 2rem;\\n        margin-bottom: 10px;\\n        padding: 10px 20px;\\n        width: 100%;\\n        flex-shrink: 0;\\n        color: #ffffff;\\n    }\\n\\n    .header__headerNavActive___3aRnX .header__headerNavContainer___3B8N0 {\\n        top: 60px;\\n    }\\n}\\n\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"headerOuterContainer\": \"header__headerOuterContainer___21gQM\",\n\t\"header\": \"header__header___3gG0p\",\n\t\"wrapper\": \"header__wrapper___3qtjf \" + __webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\").locals[\"wrapper\"] + \"\",\n\t\"headerContainer\": \"header__headerContainer___2k2FU\",\n\t\"headerHamburgerContainer\": \"header__headerHamburgerContainer___1lUKG\",\n\t\"headerNavContainer\": \"header__headerNavContainer___3B8N0\",\n\t\"headerNav\": \"header__headerNav___Dhjtg\",\n\t\"headerNavItem\": \"header__headerNavItem___j1dWn\",\n\t\"headerNavActive\": \"header__headerNavActive___3aRnX\"\n};\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/header.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\nexports.i(__webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\"), undefined);\n\n// module\nexports.push([module.i, \".header__headerOuterContainer___21gQM {\\n    height: 60px;\\n    width: 100%;\\n}\\n\\n.header__header___3gG0p {\\n    position: fixed;\\n    left: 0;\\n    right: 0;\\n    top: 0;\\n    background-color: deepskyblue;\\n}\\n\\n.header__wrapper___3qtjf {\\n}\\n\\n.header__headerContainer___2k2FU {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: center;\\n    height: 60px;\\n}\\n\\n.header__headerHamburgerContainer___1lUKG {\\n    display: none;\\n}\\n\\n.header__headerNavContainer___3B8N0 {\\n    flex-grow: 1;\\n    max-width: 500px;\\n    height: 100%;\\n    margin-left: auto;\\n    display: flex;\\n}\\n\\n.header__headerNav___Dhjtg {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: stretch;\\n    margin-left: auto;\\n}\\n\\n.header__headerNavItem___j1dWn {\\n    display: flex;\\n    align-items: center;\\n    color: #333333;\\n    text-decoration: none;\\n    margin-left: 20px;\\n    padding-left: 10px;\\n}\\n\\n.header__headerNavItem___j1dWn:not(:last-child) {\\n    padding-right: 10px;\\n}\\n\\n.header__headerGitContainer___3Q-dM {\\n    display: flex;\\n    align-items: center;\\n    text-decoration: none;\\n    color: #333333;\\n}\\n\\n.header__headerGitContainer___3Q-dM img {\\n    margin-right: 20px;\\n    height: 40px;\\n    width: 40px;\\n}\\n\\n@media (max-width: 650px) {\\n    .header__headerHamburgerContainer___1lUKG {\\n        display: block;\\n    }\\n\\n    .header__headerNavContainer___3B8N0 {\\n        position: fixed;\\n        left: 0;\\n        right: 0;\\n        top: 100%;\\n        bottom: 0;\\n        background-color: rgba(0,0,0, .7);\\n        margin-left: 0;\\n        max-width: none;\\n        height: auto;\\n        transition: all 0.2s ease-in-out;\\n    }\\n\\n    .header__headerNav___Dhjtg {\\n        flex-direction: column;\\n        justify-content: flex-start;\\n        align-items: flex-start;\\n        margin-left: 0;\\n        padding-top: 20px;\\n    }\\n\\n    .header__headerNavItem___j1dWn {\\n        font-size: 2rem;\\n        margin-bottom: 10px;\\n        padding: 10px 20px;\\n        width: 100%;\\n        flex-shrink: 0;\\n        color: #ffffff;\\n    }\\n\\n    .header__headerNavActive___3aRnX .header__headerNavContainer___3B8N0 {\\n        top: 60px;\\n    }\\n}\\n\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"headerOuterContainer\": \"header__headerOuterContainer___21gQM\",\n\t\"header\": \"header__header___3gG0p\",\n\t\"wrapper\": \"header__wrapper___3qtjf \" + __webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\").locals[\"wrapper\"] + \"\",\n\t\"headerContainer\": \"header__headerContainer___2k2FU\",\n\t\"headerHamburgerContainer\": \"header__headerHamburgerContainer___1lUKG\",\n\t\"headerNavContainer\": \"header__headerNavContainer___3B8N0\",\n\t\"headerNav\": \"header__headerNav___Dhjtg\",\n\t\"headerNavItem\": \"header__headerNavItem___j1dWn\",\n\t\"headerGitContainer\": \"header__headerGitContainer___3Q-dM\",\n\t\"headerNavActive\": \"header__headerNavActive___3aRnX\"\n};\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/header.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/heading.css":
+/*!***************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/heading.css ***!
+  \***************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\nexports.i(__webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\"), undefined);\n\n// module\nexports.push([module.i, \".heading__headingOuter___3hx2b {\\n    background-color: rgba(0,0,0,.03);\\n}\\n\\n.heading__headingContainer___f_Q-j {\\n    padding: 25px 0;\\n    position: relative;\\n}\\n\\n.heading__wrapper___3svR9 {\\n}\\n\\n.heading__heading___3pcPD {\\n    font-weight: 300;\\n    font-size: 2.7rem;\\n    margin-bottom: 5px;\\n}\\n\\n.heading__headingVersion___23E56 {\\n    color: rgba(0,0,0, .4);\\n    position: absolute;\\n    right: 0;\\n    bottom: 10px;\\n    font-size: 0.7rem;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"headingOuter\": \"heading__headingOuter___3hx2b\",\n\t\"headingContainer\": \"heading__headingContainer___f_Q-j \" + __webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\").locals[\"light\"] + \"\",\n\t\"wrapper\": \"heading__wrapper___3svR9 \" + __webpack_require__(/*! -!../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!../main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\").locals[\"wrapper\"] + \"\",\n\t\"heading\": \"heading__heading___3pcPD\",\n\t\"headingVersion\": \"heading__headingVersion___23E56\"\n};\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/heading.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/docs.css":
+/*!********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/docs.css ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\nexports.i(__webpack_require__(/*! -!../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\"), undefined);\n\n// module\nexports.push([module.i, \".docs__docs___2WbGv {\\n\\n}\\n\\n.docs__wrapper___1MRb1 {\\n}\\n\\n.docs__docsContainer___ev0WF {\\n    width: 100%;\\n    display: flex;\\n    justify-content: space-between;\\n    padding-top: 50px;\\n}\\n\\n.docs__docsAside___1Y6Ip {\\n    width: 30%;\\n    max-width: 200px;\\n}\\n\\n.docs__docsOutput____ZGBh {\\n    flex-basis: 70%;\\n    flex-grow: 1;\\n    padding-left: 50px;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"docs\": \"docs__docs___2WbGv\",\n\t\"wrapper\": \"docs__wrapper___1MRb1 \" + __webpack_require__(/*! -!../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./main.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/main.css\").locals[\"wrapper\"] + \"\",\n\t\"docsContainer\": \"docs__docsContainer___ev0WF\",\n\t\"docsAside\": \"docs__docsAside___1Y6Ip\",\n\t\"docsOutput\": \"docs__docsOutput____ZGBh\"\n};\n\n//# sourceURL=webpack:///./dev/styles/docs.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
 
 /***/ }),
 

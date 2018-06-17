@@ -40,7 +40,7 @@ module.exports = (options) => {
 			filename: output + 'modal/demos/index.html',
 			canonical: 'canonical3',
 			template: dev + 'templates/demos.template.html',
-			chunks: ['modal/docs/demos']
+			chunks: ['modal/demos/demos']
 
 		},
 	];

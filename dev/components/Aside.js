@@ -17,7 +17,7 @@ class Aside extends React.Component {
 					{this.props.list.map((e) => {
 						return (
 							<div key={'AsideSection_'+e.name} className={s.asideSection}>
-								<h3>{e.name}</h3>
+								{e.name  && <h3>{e.name}</h3>}
 								<ul className={s.asideList}>
 									{e.items.map((z) => {
 										active = z === this.props.active ? s.asideListItemActive : null;
