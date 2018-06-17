@@ -7,8 +7,6 @@
     flex-direction: column;
 }
 
-
-
 .asideSection {
     display: flex;
     flex-direction: column;
@@ -16,26 +14,31 @@
 }
 
 .asideSection h3 {
-    margin-bottom: 20px;
-    padding-right: 40px;
-    font-size: 1.3rem;
+    text-align: right;
+    width: 100%;
+    font-size: 1.1rem;
     text-transform: uppercase;
 }
 
 .asideList {
-    display: flex;
-    flex-direction: column;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .asideListItem {
-    padding: 15px 40px 15px 0;
+    padding: 15px 0;
+    padding-right: 40px;
     font-size: 1.1rem;
     text-align: right;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+.asideListItem:hover,
+.asideListItemActive,
+.asideListItem:focus {
+    background-color: rgba(0,0,0,.03);
 }
 
 .asideListItemActive {
-    background-color: rgba(0,0,0,.03);
     padding-right: 20px;
 }

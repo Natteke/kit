@@ -15,9 +15,11 @@
 
 .docsAside {
     width: 30%;
+    max-width: 200px;
 }
 
 .docsOutput {
-    width: 70%;
+    flex-basis: 70%;
+    flex-grow: 1;
     padding-left: 50px;
 }

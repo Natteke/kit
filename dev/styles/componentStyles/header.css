@@ -54,7 +54,20 @@
     padding-right: 10px;
 }
 
-@media (max-width: 500px) {
+.headerGitContainer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+}
+
+.headerGitContainer img {
+    margin-right: 20px;
+    height: 40px;
+    width: 40px;
+}
+
+@media (max-width: 650px) {
     .headerHamburgerContainer {
         display: block;
     }

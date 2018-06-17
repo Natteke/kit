@@ -1,7 +1,6 @@
 import React from 'react';
 import main from '../styles/main.css';
 import s from '../styles/componentStyles/header.css'
-import h from '../styles/componentStyles/btn/Hamburger.css'
 let timer;
 
 import HamburgerBtn from './btn/Hamburger.js';
@@ -24,7 +23,7 @@ class Header extends React.Component {
 		},0)
 	};
 	handleFocus = (e) => clearTimeout(timer);
-	
+
 	render() {
 		let navStyle = this.state.navOpen ?
 			[s.headerContainer, s.headerNavActive].join(' ') : s.headerContainer;
@@ -34,8 +33,7 @@ class Header extends React.Component {
 			return <a key={'header_' + e.name}
 					  download={e.download}
 					  href={e.href}
-					  className={s.headerNavItem}
-			>{e.name}</a>
+					  className={s.headerNavItem}>{e.name}</a>
 		});
 
 		return(
@@ -45,12 +43,15 @@ class Header extends React.Component {
 						<div className={navStyle}>
 							<div className={s.headerHamburgerContainer}>
 								<HamburgerBtn active={hamburgerActive}
-											  styles={h}
 											  onClick={this.handleClick}
 											  onBlur={this.handleBlur}
 											  onFocus={this.handleFocus}
 								/>
 							</div>
+							<a href={this.props.git} className={s.headerGitContainer}>
+								<img src="https://shanetarr.com/wp-content/uploads/2017/08/github-desktop-icon.png" alt=""/>
+								<p>Find&nbsp;me&nbsp;on&nbsp;GitHub</p>
+							</a>
 							<div className={s.headerNavContainer}>
 								<nav className={s.headerNav}>
 									{links}

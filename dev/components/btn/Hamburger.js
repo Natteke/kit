@@ -1,9 +1,9 @@
 import React from 'react';
+import h from '../../styles/componentStyles/btn/Hamburger.css'
 
 let Hamburger = (props) => {
-	let s = props.styles;
 	let active = props.active ?
-		[props.active, s.hamburger].join(' ') : s.hamburger ;
+		[props.active, h.hamburger].join(' ') : h.hamburger ;
 	return (
 		<div className={active}
 			 onClick={props.onClick}
@@ -12,10 +12,10 @@ let Hamburger = (props) => {
 			 tabIndex={0}
 		>
 
-			<div className={s.hamburgerInner}>
-				<div className={s.hamburgerLine}></div>
-				<div className={s.hamburgerLine}></div>
-				<div className={s.hamburgerLine}></div>
+			<div className={h.hamburgerInner}>
+				<div className={h.hamburgerLine}></div>
+				<div className={h.hamburgerLine}></div>
+				<div className={h.hamburgerLine}></div>
 			</div>
 		</div>
 	)

@@ -27,18 +27,8 @@ let config = {
 			download: true
 		},
 	],
-	section: {
-		about: {
-			heading: 'About',
-		},
-		demos: {
-			heading: 'Demos',
-		},
-		docs: {
-			heading: 'Docs',
-		},
-	},
-	version : 'Kit Modal v1.1.0'
+	version : 'Kit Modal v1.1.0',
+	git: 'https://github.com/Natteke/kit.modal'
 };
 
 export default config;

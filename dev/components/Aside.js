@@ -6,26 +6,29 @@ class Aside extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			list: this.props.list.map((e) =>  this.generateSection(e))
 		}
 	}
 
-	generateSection = (obj) => {
-		return (
-			<div key={'AsideSection_'+obj.name} className={s.asideSection}>
-				<h3>{obj.name}</h3>
-				<ul>
-					{obj.items.map((e) => <li onClick={this.props.onItemClick} key={'Aside_'+e} className={s.asideListItem}>{e}</li>)}
-				</ul>
-			</div>
-		)
-	};
-
 	render() {
+		let active;
 		return(
 			<aside className={s.aside}>
 				<div className={s.asideInner}>
-					{this.state.list}
+					{this.props.list.map((e) => {
+						return (
+							<div key={'AsideSection_'+e.name} className={s.asideSection}>
+								<h3>{e.name}</h3>
+								<ul className={s.asideList}>
+									{e.items.map((z) => {
+										active = z === this.props.active ? s.asideListItemActive : null;
+										return <li onClick={this.props.onItemClick}
+												   key={'Aside_'+z}
+												   className={[s.asideListItem, active].join(' ')}>{z}</li>
+									})}
+								</ul>
+							</div>
+						)
+					})}
 				</div>
 			</aside>
 		)
