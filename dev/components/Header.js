@@ -1,6 +1,7 @@
 import React from 'react';
 import main from '../styles/main.css';
 import s from '../styles/componentStyles/header.css'
+import h from '../styles/componentStyles/btn/Hamburger.css'
 let timer;
 
 import HamburgerBtn from './btn/Hamburger.js';
@@ -13,15 +14,15 @@ class Header extends React.Component {
 		}
 	}
 
-	handleClick=()=>{this.setState({navOpen: !this.state.navOpen})};
+	handleClick= () => this.setState({navOpen: !this.state.navOpen});
+
 	handleBlur = (e) => {
 		if(e.relatedTarget && e.relatedTarget.nodeName === 'A') return e.target.focus();
 		timer = setTimeout(() => {
-			this.setState({
-				navOpen: false
-			})
+			this.setState({ navOpen: false })
 		},0)
 	};
+
 	handleFocus = (e) => clearTimeout(timer);
 
 	render() {
@@ -46,6 +47,7 @@ class Header extends React.Component {
 											  onClick={this.handleClick}
 											  onBlur={this.handleBlur}
 											  onFocus={this.handleFocus}
+											  styles={h}
 								/>
 							</div>
 							<a href={this.props.git} className={s.headerGitContainer}>

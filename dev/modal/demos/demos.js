@@ -5,7 +5,7 @@ import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
-import s from '../../styles/docs.css';
+import s from '../../styles/demos.css';
 
 
 
@@ -19,7 +19,7 @@ let items = {
 
 let list = [
 	{
-		items: ['Basic','Loader','Form', 'Insider','Auto-hide']
+		items: ['Basic','Loader','Form','Insider','Auto-hide']
 
 	}
 ];
@@ -51,13 +51,13 @@ class Docs extends React.Component {
 					version={config.version}/>
 				<section className={s.docs}>
 					<div className={s.wrapper}>
-						<div className={s.docsContainer}>
-							<div className={s.docsAside}>
+						<div className={s.demosContainer}>
+							<div className={s.demosAside}>
 								<Aside active={this.state.asideActive}
 									   onItemClick={this.handleClick}
 									   list={list}/>
 							</div>
-							<div className={s.docsOutput}>
+							<div className={s.demosOutput}>
 								{this.state.output}
 							</div>
 						</div>

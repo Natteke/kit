@@ -377,9 +377,11 @@ ul > li {
 .bold {
     font: normal 600 16px Lato, sans-serif;
 }
+
 .regular {
     font: normal 400 16px Lato, sans-serif;
 }
+
 .light {
     font: normal 300 16px Lato, sans-serif;
 }

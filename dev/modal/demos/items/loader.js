@@ -1,5 +1,3 @@
-console.dir('loader');
-
 import React from 'react';
 
 

@@ -1,0 +1,57 @@
+.mainOuter {
+
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.mainInner {
+
+}
+
+.commonH2 {
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+
+.commonH3 {
+    font-size: 1.4rem;
+    padding-bottom: 12px;
+}
+
+.textContainer {
+    padding-bottom: 10px;
+}
+
+.textContainer p {
+    font-size: 1rem;
+    padding-bottom: 10px;
+}
+
+.logicPart {
+    padding-bottom: 40px;
+}
+
+.commonButton {
+    composes: light from '../styles/main.css';
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #333333;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color:#ffffff;
+    text-align:center;
+    transition: all 0.2s;
+    background-color:#FFFFFF;
+    cursor: pointer;
+}
+
+.commonButton:hover{
+    color:#000000;
+    background-color: transparent;
+}
