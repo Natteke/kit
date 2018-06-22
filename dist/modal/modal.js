@@ -130,7 +130,7 @@ eval("\n\nvar _createClass = function () { function defineProperties(target, pro
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar config = {\n\t// [2] true -> download (y/n)\n\theaderLinks: [{\n\t\tname: 'Home',\n\t\thref: '/',\n\t\tdownload: false\n\t}, {\n\t\tname: 'About',\n\t\thref: '/modal',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Demos',\n\t\thref: '/modal/demos',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Docs',\n\t\thref: '/modal/docs',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Download',\n\t\thref: '/modal/download',\n\t\tdownload: true\n\t}],\n\tversion: 'Kit Modal v1.1.0',\n\tgit: 'https://github.com/Natteke/kit.modal'\n};\n\nexports.default = config;\n\n//# sourceURL=webpack:///./dev/modal/section.config.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nvar config = {\n\t// [2] true -> download (y/n)\n\theaderLinks: [{\n\t\tname: 'Home',\n\t\thref: '/',\n\t\tdownload: false\n\t}, {\n\t\tname: 'About',\n\t\thref: '/modal',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Demos',\n\t\thref: '/modal/demos',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Docs',\n\t\thref: '/modal/docs',\n\t\tdownload: false\n\t}, {\n\t\tname: 'Download',\n\t\thref: '/modal/download',\n\t\tdownload: true\n\t}],\n\tversion: 'Kit Modal v1.1.0',\n\tgit: 'https://github.com/Natteke/plugins'\n};\n\nexports.default = config;\n\n//# sourceURL=webpack:///./dev/modal/section.config.js?");
 
 /***/ }),
 

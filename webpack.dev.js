@@ -41,6 +41,11 @@ module.exports = {
 				loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
 			},
 			{
+				test: /\.css$/,
+				include: __dirname + '/plugins',
+				loader: ['style-loader', 'css-loader']
+			},
+			{
 				test: /\.(woff|woff2)$/,
 				use: [
 					{

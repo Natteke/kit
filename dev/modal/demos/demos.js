@@ -5,19 +5,21 @@ import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
-import s from '../../styles/docs.css'
+import s from '../../styles/docs.css';
 
 
 
 let Basic = AsyncComponent(() =>  import('./items/basic.js'));
+let Loader = AsyncComponent(() =>  import('./items/loader.js'));
 
 let items = {
-	Basic: <Basic/>
+	Basic: <Basic/>,
+	Loader: <Loader/>
 };
 
 let list = [
 	{
-		items: ['Basic','Pre-loader','Form', 'Insider','Auto-hide']
+		items: ['Basic','Loader','Form', 'Insider','Auto-hide']
 
 	}
 ];
