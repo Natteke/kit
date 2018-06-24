@@ -20,6 +20,7 @@
 
 .demosOutput {
     flex-basis: 70%;
+    max-width: 70%;
     flex-grow: 1;
     padding-left: 50px;
 }

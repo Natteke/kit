@@ -46,6 +46,12 @@ module.exports = {
 				loader: ['style-loader', 'css-loader']
 			},
 			{
+				test: /\.css$/,
+				include: __dirname + '/node_modules',
+				loader: ['style-loader', 'css-loader']
+			},
+
+			{
 				test: /\.(woff|woff2)$/,
 				use: [
 					{

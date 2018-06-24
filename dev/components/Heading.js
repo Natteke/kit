@@ -6,7 +6,7 @@ let Heading = (props) => {
 		<div className={s.headingOuter}>
 			<div className={s.wrapper}>
 				<div className={s.headingContainer}>
-					<h1 className={s.heading}>{props.heading}</h1>
+					<h3 className={s.heading}>{props.heading}</h3>
 					<p className={s.headingVersion}>{props.version}</p>
 				</div>
 			</div>
