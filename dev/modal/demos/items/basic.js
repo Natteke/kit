@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
-import '../../../../plugins/modal/kit.modal.basic.css';
+import '../../../../plugins/modal/templates/basic/kit.modal.basic.css';
 import Note from '../../../components/Note.js';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
@@ -25,7 +25,7 @@ class Basic extends React.Component {
 			<section className={s.mainOuter}>
 				<div className={s.wrapper}>
 					<div className={s.mainInner}>
-						<h1 className={s.commonH1}>Basic Modal</h1>
+						<h1 className={s.commonH1}>Modal Basic</h1>
 						<p className={s.commonP}>Try by pressing this common empty button.</p>
 						<button className={s.commonButton} data-trigger="Basic">Nothing uncommon, right?</button>
 						<h2 className={s.commonH2}>Simple as a snow</h2>

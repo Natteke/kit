@@ -11,7 +11,7 @@ import s from '../../styles/demos.css';
 
 let Basic = AsyncComponent(() =>  import('./items/basic.js'));
 let Loader = AsyncComponent(() =>  import('./items/loader.js'));
-
+//
 let items = {
 	Basic: <Basic/>,
 	Loader: <Loader/>
