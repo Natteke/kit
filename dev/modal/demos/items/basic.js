@@ -17,7 +17,7 @@ class Basic extends React.Component {
 	};
 
 	componentDidMount() {
-		document.kit.modal.createModal('Basic');
+		document.kit.modal.createModal('basic');
 	}
 
 	render() {
@@ -27,7 +27,7 @@ class Basic extends React.Component {
 					<div className={s.mainInner}>
 						<h1 className={s.commonH1}>Modal Basic</h1>
 						<p className={s.commonP}>Try by pressing this common empty button.</p>
-						<button className={s.commonButton} data-trigger="Basic">Nothing uncommon, right?</button>
+						<button className={s.commonButton} data-trigger="basic">Nothing uncommon, right?</button>
 						<h2 className={s.commonH2}>Simple as a snow</h2>
 						<p className={s.commonP}>This is (as you may thought) most common usage of Kit Modal. All settings are default, no add-ons. Only some styles for text and button inside it.</p>
 						<Note author={'Me'}>
@@ -52,7 +52,7 @@ class Basic extends React.Component {
 						</div>
 					</div>
 					{/*Сделать модалки - компоненты*/}
-					<div data-modal="Basic" className="kit_modal kit_none modal_basic">
+					<div data-modal="basic" className="kit_modal kit_none modal_basic">
 						<div className="modal_stage modal_basic-stage">
 							<p className="modal_basic-heading">This is a basic layout.</p>
 							<p className="modal_basic-text">But it&nbsp;can be&nbsp;easily modified to&nbsp;your requirements.</p>
