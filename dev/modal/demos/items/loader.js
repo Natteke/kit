@@ -6,7 +6,6 @@ import '../../../../plugins/modal/templates/loader/kit.modal.loader-square.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-stripes.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-circles.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-spinner.css';
-import Note from '../../../components/Note.js';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
@@ -17,16 +16,26 @@ class Loader extends React.Component {
 	}
 
 	handleClick = (e) => {
-		console.dir(e.target);
-		// setTimeout(() => e.target.modal.hide(), 5000);
+		e.persist();
+		setTimeout(() => e.target.modal.hide(), 3000);
 	};
 
 	componentDidMount() {
-		document.kit.modal.createModal('square');
-		document.kit.modal.createModal('rhombus');
-		document.kit.modal.createModal('stripes');
-		document.kit.modal.createModal('circles');
-		document.kit.modal.createModal('spinner');
+		document.kit.modal.createModal('square',{
+			required: true
+		});
+		document.kit.modal.createModal('rhombus',{
+			required: true
+		});
+		document.kit.modal.createModal('stripes',{
+			required: true
+		});
+		document.kit.modal.createModal('circles',{
+			required: true
+		});
+		document.kit.modal.createModal('spinner',{
+			required: true
+		});
 	}
 
 	render() {
@@ -35,7 +44,7 @@ class Loader extends React.Component {
 				<div className={s.wrapper}>
 					<div className={s.mainInner}>
 						<h1 className={s.commonH1}>Modal Loader</h1>
-						<p className={s.commonP}>After pressing the button below, we will run some pseudo-code (5s timeout), and to inform you, that our application is fine, there is no errors and it's still up and running, we will show you a pre-loader.</p>
+						<p className={s.commonP}>After pressing the button below, we will run some pseudo-code (3s timeout), and to inform you, that our application is fine, there is no errors and it's still up and running, we will show you a pre-loader.</p>
 						<button onClick={this.handleClick} className={s.commonButton} data-trigger="square">To the stars!</button>
 						<h2 className={s.commonH2}>Why this is so important?</h2>
 						<p className={s.commonP}>Preloader is very important interface element that let visitors know that the website hasn’t crashed, it’s just processing data.</p>
