@@ -1,4 +1,5 @@
 import React from 'react';
+import Note from '../../../components/Note.js';
 import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-rhombus.css';
@@ -6,6 +7,7 @@ import '../../../../plugins/modal/templates/loader/kit.modal.loader-square.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-stripes.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-circles.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-spinner.css';
+import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
@@ -22,36 +24,136 @@ class Loader extends React.Component {
 
 	componentDidMount() {
 		document.kit.modal.createModal('square',{
-			required: true
+			required: true,
+			stageIn: 'fadeIn',
+			stageOut: 'fadeOut'
 		});
 		document.kit.modal.createModal('rhombus',{
-			required: true
+			required: true,
+			stageIn: 'fadeIn',
+			stageOut: 'fadeOut'
 		});
 		document.kit.modal.createModal('stripes',{
-			required: true
+			required: true,
+			stageIn: 'fadeIn',
+			stageOut: 'fadeOut'
 		});
 		document.kit.modal.createModal('circles',{
-			required: true
+			required: true,
+			stageIn: 'fadeIn',
+			stageOut: 'fadeOut'
 		});
 		document.kit.modal.createModal('spinner',{
-			required: true
+			required: true,
+			stageIn: 'fadeIn',
+			stageOut: 'fadeOut'
 		});
 	}
 
 	render() {
 		return(
-			<section className={s.mainOuter}>
-				<div className={s.wrapper}>
-					<div className={s.mainInner}>
-						<h1 className={s.commonH1}>Modal Loader</h1>
-						<p className={s.commonP}>After pressing the button below, we will run some pseudo-code (3s timeout), and to inform you, that our application is fine, there is no errors and it's still up and running, we will show you a pre-loader.</p>
-						<button onClick={this.handleClick} className={s.commonButton} data-trigger="square">To the stars!</button>
-						<h2 className={s.commonH2}>Why this is so important?</h2>
-						<p className={s.commonP}>Preloader is very important interface element that let visitors know that the website hasn’t crashed, it’s just processing data.</p>
-						<button onClick={this.handleClick} className={s.commonButton} data-trigger="rhombus">Rhombus</button>
-						<button onClick={this.handleClick} className={s.commonButton} data-trigger="stripes">Stripes</button>
-						<button onClick={this.handleClick} className={s.commonButton} data-trigger="circles">Circles</button>
-						<button onClick={this.handleClick} className={s.commonButton} data-trigger="spinner">Spinner</button>
+			<section className={s.commonSection}>
+				<div className={b.container}>
+					<div className={b.row}>
+						<div className={b.col}>
+							<h1 className={s.h1}>Modal Loader</h1>
+							<p>Let's pretend that we are requesting any data from the server. <br/> Press the button!</p>
+							<div className={s["btn-container"]}>
+								<button onClick={this.handleClick} className={s.btn} data-trigger="circles">To the stars!</button>
+							</div>
+							<p>Agree, it's nice to know that the site responded, and started doing something after clicking the button, right?</p>
+							<h2 className={s.h2}>Why this is so important?</h2>
+							<p>Preloader is useful interface element that let visitors know that the website hasn’t crashed, it’s just processing some data.
+								<br/> Do not underestimate it.</p>
+							<p>Try some more of them</p>
+							<div className={b.row}>
+								<div className={b["col-6"]}>
+									<div className={s["btn-container"]}>
+										<button onClick={this.handleClick} className={s.btn} data-trigger="rhombus">Rhombus</button>
+									</div>
+								</div>
+								<div className={b["col-6"]}>
+									<div className={s["btn-container"]}>
+										<button onClick={this.handleClick} className={s.btn} data-trigger="stripes">Stripes</button>
+									</div>
+								</div>
+								<div className={b["col-6"]}>
+									<div className={s["btn-container"]}>
+										<button onClick={this.handleClick} className={s.btn} data-trigger="square">Square</button>
+									</div>
+								</div>
+								<div className={b["col-6"]}>
+									<div className={s["btn-container"]}>
+										<button onClick={this.handleClick} className={s.btn} data-trigger="spinner">Spinner</button>
+									</div>
+								</div>
+							</div>
+
+							<h2 className={s.h2}>So how do we make one of them?</h2>
+							<p>As an example i will use the first one, with circles. <br/> Others connecting with the same way as this one, just select one(or many) of the styles, and copy html markup.</p>
+							<Note>
+								Don't forget, nothing can stop you from making your own styles, markups and animations. <br/>
+								Just put your HTML inside of the modal_stage, and... you know what to do.
+							</Note>
+							<h3 className={s.h3}>CSS</h3>
+							<div className={s.codeContainer}>
+								<CodeHighlight language="html">
+									<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.css&quot;&gt;</span>
+									<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.loader-circles.css&quot;&gt;</span>
+								</CodeHighlight>
+							</div>
+							<h3 className={s.h3}>HTML</h3>
+							<div className={s.codeContainer}>
+								<CodeHighlight language="html">
+									<span className={s.codeLine}>&lt;div data-modal=&quot;circles&quot; class=&quot;kit_modal kit_none circles&quot;&gt;</span>
+									<div className={s.code_levels}>
+										<span className={s.codeLine}>&lt;div class=&quot;modal_stage circles-stage&quot;&gt;</span>
+										<div className={s.code_levels}>
+											<span className={s.codeLine}>&lt;div class=&quot;sk-fading-circle&quot;&gt;</span>
+											<div className={s.code_levels}>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle1 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle2 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle3 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle4 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle5 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle6 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle7 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle8 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle9 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle10 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle11 sk-circle&quot;&gt;&lt;/div&gt;</span>
+												<span className={s.codeLine}>&lt;div class=&quot;sk-circle12 sk-circle&quot;&gt;&lt;/div&gt;</span>
+											</div>
+											<span className={s.codeLine}>&lt;/div&gt;</span>
+										</div>
+										<span className={s.codeLine}>&lt;/div&gt;</span>
+									</div>
+									<span className={s.codeLine}>&lt;/div&gt;</span>
+								</CodeHighlight>
+							</div>
+							<h3 className={s.h3}>JS</h3>
+							<div className={s.codeContainer}>
+								<CodeHighlight language="html">
+									<span className={s.codeLine}>&lt;script src=&quot;/js/kit.modal.js&quot;&gt;&lt;/script&gt;</span>
+								</CodeHighlight>
+							</div>
+							<div className={s.codeContainer}>
+								<CodeHighlight language="javascript">
+									<span className={s.codeLine}>{'document.kit.modal.createModal(\'circles\',{\n    required: true,\n    stageIn: \'fadeIn\',\n    stageOut: \'fadeOut\'\n});'}</span>
+								</CodeHighlight>
+							</div>
+							<h2 className={s.h2}>So what to do with it?</h2>
+							<p>
+								You set up everything you need to use KitModal a preloader.
+								<br/>Next time when you will load something from server, or calculate something heavy, just show modal when you starts, and hide it in the end.
+								<br/>Like this:
+							</p>
+							<div className={s.codeContainer}>
+								<CodeHighlight language="javascript">
+									{'let modal = document.kit.modal.circles; \n    modal.show();\n    // do some code \n    modal.hide();'}
+								</CodeHighlight>
+							</div>
+						</div>
 					</div>
 				</div>
 				{/*Сделать модалки - компоненты*/}

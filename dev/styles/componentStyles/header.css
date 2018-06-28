@@ -9,6 +9,7 @@
     right: 0;
     top: 0;
     background-color: deepskyblue;
+    z-index: 1;
 }
 
 .wrapper {

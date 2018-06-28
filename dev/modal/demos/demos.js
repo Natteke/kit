@@ -7,19 +7,15 @@ import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/demos.css';
 
-
-
 let Basic = AsyncComponent(() =>  import('./items/basic.js'));
 let Loader = AsyncComponent(() =>  import('./items/loader.js'));
-//
-let items = {
-	Basic: <Basic/>,
-	Loader: <Loader/>
-};
+let items = {};
+items['Basic'] = <Basic/>;
+items['Pre-Loader'] = <Loader/>;
 
 let list = [
 	{
-		items: ['Basic','Loader','Form','Insider','Auto-hide']
+		items: ['Basic','Pre-Loader','Form','Insider','Auto-hide']
 
 	}
 ];
@@ -69,6 +65,4 @@ class Docs extends React.Component {
 	}
 }
 
-
-let output = document.body.children.output;
-ReactDOM.render(<Docs/>, output);
+ReactDOM.render(<Docs/>, document.body.children.output);
