@@ -7,15 +7,21 @@ import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/demos.css';
 
-let Basic = AsyncComponent(() =>  import('./items/basic.js'));
-let Loader = AsyncComponent(() =>  import('./items/loader.js'));
+let Basic = AsyncComponent(() =>  import('./items/Basic.js'));
+let Loader = AsyncComponent(() =>  import('./items/Loader.js'));
+let External = AsyncComponent(() =>  import('./items/External.js'));
+let Form = AsyncComponent(() =>  import('./items/Form.js'));
+let Insider = AsyncComponent(() =>  import('./items/Insider.js'));
 let items = {};
 items['Basic'] = <Basic/>;
 items['Pre-Loader'] = <Loader/>;
+items['External'] = <External/>;
+items['Form'] = <Form/>;
+items['Insider'] = <Insider/>;
 
 let list = [
 	{
-		items: ['Basic','Pre-Loader','Form','Insider','Auto-hide']
+		items: ['Basic','Pre-Loader','External','Form','Insider']
 
 	}
 ];

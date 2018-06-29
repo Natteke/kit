@@ -12,9 +12,10 @@
     color: deepskyblue;
 }
 
-.starBtn:hover {
-    /*color: #ffffff;*/
+.starBtn:hover,
+.starBtn:focus {
     padding: 20px 1.2em;
+    outline: none;
 }
 
 @keyframes move-space-bg {

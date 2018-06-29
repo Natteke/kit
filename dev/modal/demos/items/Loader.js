@@ -1,7 +1,7 @@
 import React from 'react';
 import Note from '../../../components/Note.js';
-import Button from '../../../components/btn/Button.js'
-import StarButton from '../../../components/btn/StarButton.js'
+import Button from '../../../components/btn/Button.js';
+import StarButton from '../../../components/btn/StarButton.js';
 import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-rhombus.css';
@@ -139,6 +139,8 @@ class Loader extends React.Component {
 									<span className={s.codeLine}>&lt;script src=&quot;/js/kit.modal.js&quot;&gt;&lt;/script&gt;</span>
 								</CodeHighlight>
 							</div>
+
+							<h3 className={s.h3}>Calling the plugin</h3>
 							<div className={s.codeContainer}>
 								<CodeHighlight language="javascript">
 									<span className={s.codeLine}>{'document.kit.modal.createModal(\'circles\',{\n    required: true,\n    stageIn: \'fadeIn\',\n    stageOut: \'fadeOut\'\n});'}</span>
@@ -146,7 +148,7 @@ class Loader extends React.Component {
 							</div>
 							<h2 className={s.h2}>So what to do with it?</h2>
 							<p>
-								You set up everything you need to use KitModal a preloader.
+								You set up everything you need to use KitModal as a preloader.
 								<br/>Next time when you will load something from server, or calculate something heavy, just show modal when you starts, and hide it in the end.
 								<br/>Like this:
 							</p>
@@ -155,6 +157,7 @@ class Loader extends React.Component {
 									{'let modal = document.kit.modal.circles; \n    modal.show();\n    // do some code \n    modal.hide();'}
 								</CodeHighlight>
 							</div>
+							<p>That's all with it. <br/> Hope this way of using KitModal will be helpful. -A.</p>
 						</div>
 					</div>
 				</div>

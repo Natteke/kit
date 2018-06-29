@@ -4,7 +4,9 @@
 
 }
 
-.button:hover{
+.button:hover,
+.button:focus {
     background-color: #000000;
     color:deepskyblue;
+    outline: none;
 }

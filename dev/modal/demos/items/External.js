@@ -21,7 +21,7 @@ class Form extends React.Component {
 				<div className={b.container}>
 					<div className={b.row}>
 						<div className={b.col}>
-							<h1 className={s.h1}>Modal Insider</h1>
+							<h1 className={s.h1}>Modal External</h1>
 							<p className={s.comment}>// under construction</p>
 						</div>
 					</div>
