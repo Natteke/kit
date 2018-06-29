@@ -1,0 +1,19 @@
+.btn {
+    composes: regular from '../../../styles/main.css';
+    display:inline-block;
+    padding: 8px 1.2em;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-align:center;
+    color: #333333;
+    cursor: pointer;
+    flex-grow: 1;
+    width: 100%;
+    background-color: deepskyblue;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 0 #333333;
+    -moz-box-shadow: 0 2px 0 #333333;
+    box-shadow: 0 2px 0 #333333;
+}
+

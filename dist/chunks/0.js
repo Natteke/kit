@@ -1,17 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "./dev/components/Note.js":
-/*!********************************!*\
-  !*** ./dev/components/Note.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Note = __webpack_require__(/*! ../styles/componentStyles/Note.css */ \"./dev/styles/componentStyles/Note.css\");\n\nvar _Note2 = _interopRequireDefault(_Note);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Note = function Note(props) {\n\treturn _react2.default.createElement(\n\t\t'div',\n\t\t{ className: _Note2.default.noteContainer },\n\t\t_react2.default.createElement(\n\t\t\t'div',\n\t\t\t{ className: _Note2.default.noteText },\n\t\t\tprops.children\n\t\t),\n\t\t_react2.default.createElement(\n\t\t\t'p',\n\t\t\t{ className: _Note2.default.noteAuthor },\n\t\t\t'\\u2014',\n\t\t\tprops.author\n\t\t)\n\t);\n};\n\nexports.default = Note;\n\n//# sourceURL=webpack:///./dev/components/Note.js?");
-
-/***/ }),
-
 /***/ "./dev/modal/demos/items/basic.js":
 /*!****************************************!*\
   !*** ./dev/modal/demos/items/basic.js ***!
@@ -24,17 +12,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 
 /***/ }),
 
-/***/ "./dev/styles/componentStyles/Note.css":
-/*!*********************************************!*\
-  !*** ./dev/styles/componentStyles/Note.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./Note.css */ \"./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/Note.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/Note.css?");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./plugins/modal/templates/basic/kit.modal.basic.css":
 /*!*************************************************************************************!*\
   !*** ./node_modules/css-loader!./plugins/modal/templates/basic/kit.modal.basic.css ***!
@@ -43,17 +20,6 @@ eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader?
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".kit_modal * {\\n    font-family: sans-serif;\\n}\\n.modal_basic-stage {\\n    background-color: #ffffff;\\n    padding: 20px 24px;\\n    width: 90%;\\n    border-radius: 7px;\\n    max-width: 500px;\\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\\n}\\n.modal_basic-heading {\\n    font-size: 28px;\\n    margin-bottom: 20px;\\n    padding: 0 8px;\\n    font-weight: 700;\\n    color: rgba(0,0,0, .87);\\n}\\n\\n.modal_basic-text {\\n    margin-bottom: 20px;\\n    font-size: 20px;\\n    padding: 0 8px;\\n    color: rgba(0,0,0, .54);\\n}\\n\\n.modal_basic-button {\\n    display: block;\\n    margin-left: auto;\\n    border: 0;\\n    padding: 8px;\\n    cursor: pointer;\\n    background-color: transparent;\\n    font-size: 18px;\\n    color: rgb(33,150,243);\\n    font-weight: 700;\\n    border-radius: 2px;\\n    -webkit-touch-callout: none;\\n    -webkit-user-select: none;\\n    -khtml-user-select: none;\\n    -moz-user-select: none;\\n    -ms-user-select: none;\\n    user-select: none;\\n    text-decoration: none;\\n}\\n\\n.modal_basic-button:hover,\\n.modal_basic-button:focus {\\n    color: rgb(27,130,223);\\n}\\n\\nbutton::-moz-focus-inner {\\n    border: 0;\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./plugins/modal/templates/basic/kit.modal.basic.css?./node_modules/css-loader");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/Note.css":
-/*!************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./dev/styles/componentStyles/Note.css ***!
-  \************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".Note__noteContainer___1Dg1_ {\\n    padding: 20px;\\n    margin: 15px 0;\\n    color: #333333;\\n    background-color: #f8f8f8;\\n    border-left: 5px deepskyblue solid;\\n\\n}\\n\\n.Note__noteText___GkbCj {\\n}\\n\\n.Note__noteAuthor___2BXvU {\\n    text-align: right;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"noteContainer\": \"Note__noteContainer___1Dg1_\",\n\t\"noteText\": \"Note__noteText___GkbCj\",\n\t\"noteAuthor\": \"Note__noteAuthor___2BXvU\"\n};\n\n//# sourceURL=webpack:///./dev/styles/componentStyles/Note.css?./node_modules/css-loader?modules&importLoaders=1&localIdentName=%5Bname%5D__%5Blocal%5D___%5Bhash:base64:5%5D");
 
 /***/ }),
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import Note from '../../../components/Note.js';
+import Button from '../../../components/btn/Button.js'
+import StarButton from '../../../components/btn/StarButton.js'
 import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-rhombus.css';
@@ -59,7 +61,7 @@ class Loader extends React.Component {
 							<h1 className={s.h1}>Modal Loader</h1>
 							<p>Let's pretend that we are requesting any data from the server. <br/> Press the button!</p>
 							<div className={s["btn-container"]}>
-								<button onClick={this.handleClick} className={s.btn} data-trigger="circles">To the stars!</button>
+								<StarButton onClick={this.handleClick} data-trigger="circles">To the stars!</StarButton>
 							</div>
 							<p>Agree, it's nice to know that the site responded, and started doing something after clicking the button, right?</p>
 							<h2 className={s.h2}>Why this is so important?</h2>
@@ -69,22 +71,22 @@ class Loader extends React.Component {
 							<div className={b.row}>
 								<div className={b["col-6"]}>
 									<div className={s["btn-container"]}>
-										<button onClick={this.handleClick} className={s.btn} data-trigger="rhombus">Rhombus</button>
+										<Button onClick={this.handleClick} data-trigger="rhombus">Rhombus</Button>
 									</div>
 								</div>
 								<div className={b["col-6"]}>
 									<div className={s["btn-container"]}>
-										<button onClick={this.handleClick} className={s.btn} data-trigger="stripes">Stripes</button>
+										<Button onClick={this.handleClick} data-trigger="stripes">Stripes</Button>
 									</div>
 								</div>
 								<div className={b["col-6"]}>
 									<div className={s["btn-container"]}>
-										<button onClick={this.handleClick} className={s.btn} data-trigger="square">Square</button>
+										<Button onClick={this.handleClick} data-trigger="square">Square</Button>
 									</div>
 								</div>
 								<div className={b["col-6"]}>
 									<div className={s["btn-container"]}>
-										<button onClick={this.handleClick} className={s.btn} data-trigger="spinner">Spinner</button>
+										<Button onClick={this.handleClick} data-trigger="spinner">Spinner</Button>
 									</div>
 								</div>
 							</div>

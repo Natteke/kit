@@ -34,31 +34,9 @@
     margin-top: 20px;
 }
 
-.btn {
-    composes: light from '../styles/main.css';
-    display:inline-block;
-    padding:0.35em 1.2em;
-    border:0.1em solid #333333;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    color: #333333;
-    text-align:center;
-    transition: all 0.2s;
-    background-color:#FFFFFF;
-    cursor: pointer;
-    flex-grow: 1;
-    width: 100%;
-}
-
-.btn:hover{
-    color:#000000;
-    background-color: deepskyblue;
-}
-
 .codeContainer {
     background-color: #f8f8f8;
-    border: 1px #dfdfdf solid;
+    border: 1px transparent solid;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 20px;
     margin-top: 20px;

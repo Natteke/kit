@@ -1,0 +1,28 @@
+.starBtn-container {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.starBtn {
+    composes: btn from './btn.css';
+    transition: color 0.31s, padding 0.31s;
+    animation: move-space-bg 20s infinite normal linear forwards;
+    background: #333333 url('../../../images/stars.png') 50% 0/cover;
+    color: deepskyblue;
+}
+
+.starBtn:hover {
+    /*color: #ffffff;*/
+    padding: 20px 1.2em;
+}
+
+@keyframes move-space-bg {
+    from {
+        background-position-y: 0%;
+    }
+
+    to {
+        background-position-y: 100%;
+    }
+}
