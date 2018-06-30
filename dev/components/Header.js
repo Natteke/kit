@@ -2,6 +2,7 @@ import React from 'react';
 import main from '../styles/main.css';
 import s from '../styles/componentStyles/header.css'
 import h from '../styles/componentStyles/btn/Hamburger.css'
+import logo from '../images/git.png'
 let timer;
 
 import HamburgerBtn from './btn/Hamburger.js';
@@ -51,7 +52,7 @@ class Header extends React.Component {
 								/>
 							</div>
 							<a href={this.props.git} className={s.headerGitContainer}>
-								<img src="https://shanetarr.com/wp-content/uploads/2017/08/github-desktop-icon.png" alt=""/>
+								<img src={logo} alt=""/>
 								<p>Find&nbsp;me&nbsp;on&nbsp;GitHub</p>
 							</a>
 							<div className={s.headerNavContainer}>

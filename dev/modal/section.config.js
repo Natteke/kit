@@ -28,7 +28,7 @@ let config = {
 		},
 	],
 	version : 'Kit Modal v1.1.0',
-	git: 'https://github.com/Natteke/plugins'
+	git: 'https://github.com/Natteke'
 };
 
 export default config;

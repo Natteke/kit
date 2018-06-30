@@ -52,12 +52,24 @@ module.exports = {
 			},
 
 			{
-				test: /\.(woff|woff2|png|jpg)$/,
+				test: /\.(woff|woff2)$/,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
 							name: 'styles/fonts/[name].[ext]'
+						}
+					}
+				]
+			},
+
+			{
+				test: /\.(png|jpg)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'images/[name].[ext]'
 						}
 					}
 				]

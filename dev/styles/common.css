@@ -21,6 +21,12 @@
 
 .h3 {
     font-size: 1.4rem;
+    margin-top: 40px;
+}
+
+.h3 + p,
+.h2 + p,
+.h1 + p {
     margin-top: 20px;
 }
 

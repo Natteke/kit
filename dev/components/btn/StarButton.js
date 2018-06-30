@@ -1,6 +1,8 @@
 import React from 'react';
 import s from '../../styles/componentStyles/btn/StarButton.css';
 
+
+
 let StarButton = (props) => {
 	return (
 		<div className={s["starBtn-container"]}>
