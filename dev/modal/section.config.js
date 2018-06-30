@@ -3,27 +3,27 @@ let config = {
 	headerLinks: [
 		{
 			name: 'Home',
-			href: '/',
+			href: '/kit',
 			download: false
 		},
 		{
 			name: 'About',
-			href: '/modal',
+			href: '/kit/modal',
 			download: false
 		},
 		{
 			name: 'Demos',
-			href: '/modal/demos',
+			href: '/kit/modal/demos',
 			download: false
 		},
 		{
 			name: 'Docs',
-			href: '/modal/docs',
+			href: '/kit/modal/docs',
 			download: false
 		},
 		{
 			name: 'Download',
-			href: '/modal/download',
+			href: '/kit/modal/download',
 			download: true
 		},
 	],
