@@ -3,11 +3,11 @@ import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
 import '../../../../plugins/modal/templates/basic/kit.modal.basic.css';
 import StarButton from '../../../components/btn/StarButton.js'
-import Note from '../../../components/Note.js';
 import s from '../../../styles/common.css';
 import b from '../../../styles/bootstrap-grid.min.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
+console.dir('bas');
 
 class Basic extends React.Component {
 	constructor(props) {
@@ -37,7 +37,7 @@ class Basic extends React.Component {
 							<p>Well, the answer is right in front of us.</p>
 							<StarButton data-trigger={'Basic'}>Front of us</StarButton>
 							<h2 className={s.h2}>Pretty simple right?</h2>
-							<p>This is (as you may thought) most common usage of Kit Modal. Everything is default. Only some styles for text and button inside.</p>
+							<p>This (as you may thought) is the most common way to use Kit&nbsp;Modal. Everything is default. Only some styles for text and button inside.</p>
 							<h2 className={s.h2}>So here's the setup</h2>
 							<h3 className={s.h3}>CSS</h3>
 							<div className={s.codeContainer}>
@@ -49,13 +49,17 @@ class Basic extends React.Component {
 							<h3 className={s.h3}>HTML</h3>
 							<div className={s.codeContainer}>
 								<CodeHighlight language="html">
-									<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal kit_none modal_basic"&gt;</span>
+									<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal kit_none basic"&gt;</span>
 									<div className={s.code_levels}>
-										<span className={s.codeLine}>&lt;div class="modal_stage modal_basic-stage"&gt;</span>
+										<span className={s.codeLine}>&lt;div class="stage basic-stage"&gt;</span>
 										<div className={s.code_levels}>
-											<span className={s.codeLine}>&lt;p class="modal_basic-heading"&gt;This is a basic layout.&lt;/p&gt;</span>
-											<span className={s.codeLine}>&lt;p class="modal_basic-text"&gt;But it can be easily modified to your requirements.&lt;/p&gt;</span>
-											<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class="modal_basic-button" type="button"&gt;CLOSE&lt;/button&gt;</span>
+											<span className={s.codeLine}>&lt;p class="basic-heading"&gt;This is a basic layout.&lt;/p&gt;</span>
+											<span className={s.codeLine}>&lt;p class="basic-text"&gt;But it can be easily modified to your requirements.&lt;/p&gt;</span>
+											<span className={s.codeLine}>&lt;div className=&quot;basic-container&quot;&gt;</span>
+											<div className={s.code_levels}>
+												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class="basic-button" type="button"&gt;CLOSE&lt;/button&gt;</span>
+											</div>
+											<span className={s.codeLine}>&lt;/div&gt;</span>
 										</div>
 										<span className={s.codeLine}>&lt;/div&gt;</span>
 									</div>
@@ -83,8 +87,9 @@ class Basic extends React.Component {
 						<p className="basic-heading">This is a basic layout.</p>
 						<p className="basic-text">But it&nbsp;can be&nbsp;easily modified to&nbsp;your
 							requirements.</p>
-						<button onClick={this.handleClickModal} className="basic-button" type="button">CLOSE
-						</button>
+						<div className="basic-container">
+							<button onClick={this.handleClickModal} className="basic-button" type="button">CLOSE</button>
+						</div>
 					</div>
 				</div>
 			</section>

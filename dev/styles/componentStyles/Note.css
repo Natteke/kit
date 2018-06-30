@@ -4,12 +4,13 @@
     color: #333333;
     background-color: #f8f8f8;
     border-left: 5px deepskyblue solid;
-
 }
 
-.noteText {
+.noteContainer .noteText {
 }
 
-.noteAuthor {
+.noteContainer .noteAuthor {
     text-align: right;
+    margin: 0;
+    padding: 0;
 }

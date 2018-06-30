@@ -13,6 +13,8 @@ import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
+console.dir('loader');
+
 
 class Loader extends React.Component {
 	constructor(props) {
@@ -157,11 +159,13 @@ class Loader extends React.Component {
 									{'let modal = document.kit.modal.circles; \n    modal.show();\n    // do some code \n    modal.hide();'}
 								</CodeHighlight>
 							</div>
-							<p>That's all with it. <br/> Hope this way of using KitModal will be helpful. -A.</p>
+							<Note author={'Note'}>
+								All this wonderful animations for Kit&nbsp;Loader was provided by Tobi&nbsp;Ahlin.
+							<br/>Subscribe Tobi on <a href="https://twitter.com/tobiasahlin">Twitter</a>, or check for more animations on his <a href="http://tobiasahlin.com/spinkit/">site</a>.
+							</Note>
 						</div>
 					</div>
 				</div>
-				{/*Сделать модалки - компоненты*/}
 				<div data-modal="square" className="kit_modal kit_none square">
 					<div className="modal_stage square-stage">
 						<div className="modal_stage square-inner"></div>

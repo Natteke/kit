@@ -8,6 +8,8 @@ import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 // import CodeHighlight from 'code-highlight';
 // import "highlight.js/styles/arduino-ligh-custom.css";
+console.dir('insider');
+
 
 class Form extends React.Component {
 	constructor(props) {
