@@ -28,7 +28,7 @@ module.exports = {
 		path: common.production,
 		filename: '[name].js',
 		chunkFilename: 'chunks/[id].js',
-		publicPath: '/'
+		publicPath: '/kit'
 	},
 	optimization: {
 		minimizer: [
