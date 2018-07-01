@@ -26,7 +26,7 @@ module.exports = {
 		path: common.production,
 		filename: '[name].js',
 		chunkFilename: 'chunks/[id].js',
-		publicPath: '/kit/'
+		publicPath: '/kit'
 	},
 	optimization: {
 		minimizer: [
@@ -105,16 +105,30 @@ module.exports = {
 			},
 
 			{
-				test: /\.(woff|woff2|png|jpg)$/,
+				test: /\.(woff|woff2)$/,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: '[path][name].[ext]'
+							name: 'styles/fonts/[name].[ext]',
+							publicPath: '/kit'
 						}
 					}
 				]
 			},
+
+			{
+				test: /\.(png|jpg)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'images/[name].[ext]',
+							publicPath: '/kit'
+						}
+					}
+				]
+			}
 
 			// {
 			// 	test: /\.(png|jpg)$/,

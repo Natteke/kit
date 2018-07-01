@@ -41,7 +41,8 @@ class Loader extends React.Component {
 		document.kit.modal.createModal('stripes',{
 			required: true,
 			stageIn: 'fadeIn',
-			stageOut: 'fadeOut'
+			stageOut: 'fadeOut',
+			fixed: 'header'
 		});
 		document.kit.modal.createModal('circles',{
 			required: true,
