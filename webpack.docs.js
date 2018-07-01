@@ -9,8 +9,6 @@ let path = require('path'),
 	htmGeneratorConfig = require('./htmlwebpackplugin.config')(common);
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MinifyJs = require('babel-minify-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CompressionPlugin = require("compression-webpack-plugin");
@@ -19,9 +17,9 @@ const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
 	mode: common.mode,
 	entry: {
-		'home': common.dev + 'home.js',
-		'modal/modal': common.dev + 'modal/modal.js',
-		'modal/docs/docs': common.dev + 'modal/docs/docs.js',
+		// 'home': common.dev + 'home.js',
+		// 'modal/modal': common.dev + 'modal/modal.js',
+		// 'modal/docs/docs': common.dev + 'modal/docs/docs.js',
 		'modal/demos/demos': common.dev + 'modal/demos/demos.js'
 	},
 	output: {
@@ -38,13 +36,11 @@ module.exports = {
 				sourceMap: false
 
 			}),
-			new OptimizeCSSAssetsPlugin(),
-
 		]
 	},
 	devtool: false,
 	devServer: {
-		contentBase: common.production,
+		contentBase: common.production + '/kit/',
 	},
 	module: {
 		rules: [
@@ -76,7 +72,7 @@ module.exports = {
 							importLoaders: 1,
 							modules: true,
 							minimize: true,
-							localIdentName: "[name]__[hash:base64:5]"
+							localIdentName: "[hash:base64:5]"
 						},
 					},
 				],
@@ -109,28 +105,28 @@ module.exports = {
 			},
 
 			{
-				test: /\.(woff|woff2)$/,
+				test: /\.(woff|woff2|png|jpg)$/,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'styles/fonts/[name].[ext]'
+							name: '[path][name].[ext]'
 						}
 					}
 				]
 			},
 
-			{
-				test: /\.(png|jpg)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: 'images/[name].[ext]'
-						}
-					}
-				]
-			}
+			// {
+			// 	test: /\.(png|jpg)$/,
+			// 	use: [
+			// 		{
+			// 			loader: 'file-loader',
+			// 			options: {
+			// 				name: '[path][name].[ext]'
+			// 			}
+			// 		}
+			// 	]
+			// }
 		]
 	},
 	plugins: htmGeneratorConfig.concat([

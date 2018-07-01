@@ -20,10 +20,10 @@ module.exports = {
 		path: common.dist,
 		filename: '[name].js',
 		chunkFilename: 'chunks/[id].js',
-		publicPath: common.dist
+		publicPath: '/kit'
 	},
 	devServer: {
-		contentBase: common.dist,
+		contentBase: common.dist + '/kit',
 	},
 	module: {
 		rules: [
