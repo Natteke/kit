@@ -5,7 +5,6 @@ import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
-console.dir('ext');
 
 
 
@@ -23,6 +22,7 @@ class External extends React.Component {
 		document.kit.modal.createModal('External', {
 			preventDefault: true,
 			required: true,
+			fixed: 'header',
 			onTrigger : triggerHandler
 		});
 	}

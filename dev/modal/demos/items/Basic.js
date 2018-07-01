@@ -7,7 +7,6 @@ import s from '../../../styles/common.css';
 import b from '../../../styles/bootstrap-grid.min.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
-console.dir('bas');
 
 class Basic extends React.Component {
 	constructor(props) {
@@ -20,7 +19,9 @@ class Basic extends React.Component {
 	};
 
 	componentDidMount() {
-		document.kit.modal.createModal('Basic');
+		document.kit.modal.createModal('Basic', {
+			fixed: 'header'
+		});
 	}
 
 	render() {

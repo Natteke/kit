@@ -13,7 +13,6 @@ import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
-console.dir('loader');
 
 
 class Loader extends React.Component {
@@ -30,12 +29,14 @@ class Loader extends React.Component {
 		document.kit.modal.createModal('square',{
 			required: true,
 			stageIn: 'fadeIn',
-			stageOut: 'fadeOut'
+			stageOut: 'fadeOut',
+			fixed: 'header'
 		});
 		document.kit.modal.createModal('rhombus',{
 			required: true,
 			stageIn: 'fadeIn',
-			stageOut: 'fadeOut'
+			stageOut: 'fadeOut',
+			fixed: 'header'
 		});
 		document.kit.modal.createModal('stripes',{
 			required: true,
@@ -45,12 +46,14 @@ class Loader extends React.Component {
 		document.kit.modal.createModal('circles',{
 			required: true,
 			stageIn: 'fadeIn',
-			stageOut: 'fadeOut'
+			stageOut: 'fadeOut',
+			fixed: 'header'
 		});
 		document.kit.modal.createModal('spinner',{
 			required: true,
 			stageIn: 'fadeIn',
-			stageOut: 'fadeOut'
+			stageOut: 'fadeOut',
+			fixed: 'header'
 		});
 	}
 
