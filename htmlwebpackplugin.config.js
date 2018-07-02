@@ -16,21 +16,21 @@ module.exports = (options) => {
 		{
 			title: 'Home',
 			filename: output + 'index.html',
-			canonical: 'canonical1',
+			canonical: 'https://natteke.github.io/kit/',
 			template: dev + 'templates/home.template.html',
 			chunks: ['home']
 		},
 		{
 			title: 'About | Modal',
 			filename: output + 'modal/index.html',
-			canonical: 'canonical2',
+			canonical: 'https://natteke.github.io/kit/modal/',
 			template: dev + 'templates/about.template.html',
 			chunks: ['modal/modal']
 		},
 		{
 			title: 'Docs | Modal',
 			filename: output + 'modal/docs/index.html',
-			canonical: 'canonical3',
+			canonical: 'https://natteke.github.io/kit/modal/docs/',
 			template: dev + 'templates/docs.template.html',
 			chunks: ['modal/docs/docs']
 
@@ -38,7 +38,7 @@ module.exports = (options) => {
 		{
 			title: 'Demos | Modal',
 			filename: output + 'modal/demos/index.html',
-			canonical: 'canonical3',
+			canonical: 'https://natteke.github.io/kit/modal/demos/',
 			template: dev + 'templates/demos.template.html',
 			chunks: ['modal/demos/demos']
 

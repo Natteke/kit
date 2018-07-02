@@ -6,12 +6,12 @@ import Header from './components/Header.js';
 let headerLinks = [
 	{
 		name: 'Home',
-		href: '/',
+		href: '/kit',
 		download: false
 	},
 	{
 		name: 'Modal',
-		href: '/modal',
+		href: '/kit/modal',
 		download: false
 	}
 ];
