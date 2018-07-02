@@ -29,8 +29,8 @@
 
 .kit_document-live{
     overflow-y: hidden;
-    width: 100%;
-    position: fixed;
+    /*width: 100%;*/
+    /*position: fixed;*/
 }
 
 .kit_modal-live{
