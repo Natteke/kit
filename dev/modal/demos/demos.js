@@ -5,7 +5,9 @@ import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
-import s from '../../styles/demos.css';
+import s from '../../styles/common.css';
+import b from '../../styles/bootstrap-grid.css';
+
 
 let Basic = AsyncComponent(() =>  import('./items/Basic.js'));
 let Loader = AsyncComponent(() =>  import('./items/Loader.js'));
@@ -13,11 +15,11 @@ let External = AsyncComponent(() =>  import('./items/External.js'));
 let Form = AsyncComponent(() =>  import('./items/Form.js'));
 let Insider = AsyncComponent(() =>  import('./items/Insider.js'));
 let items = {};
-items['Basic'] = <Basic/>;
-items['Pre-Loader'] = <Loader/>;
-items['External'] = <External/>;
-items['Form'] = <Form/>;
-items['Insider'] = <Insider/>;
+items['Basic'] = <Basic bootstrap={b}/>;
+items['Pre-Loader'] = <Loader bootstrap={b}/>;
+items['External'] = <External bootstrap={b}/>;
+items['Form'] = <Form bootstrap={b}/>;
+items['Insider'] = <Insider bootstrap={b}/>;
 
 let list = [
 	{
@@ -31,7 +33,7 @@ class Docs extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			output: <Basic/>,
+			output: items['Basic'],
 			asideActive: 'Basic'
 		}
 	}
@@ -51,15 +53,15 @@ class Docs extends React.Component {
 				<Heading
 					heading={'Demos'}
 					version={config.version}/>
-				<section className={s.docs}>
+				<section className={s["main-flow"]}>
 					<div className={s.wrapper}>
-						<div className={s.demosContainer}>
-							<div className={s.demosAside}>
+						<div className={[b.row,b["no-gutters"]].join(' ')}>
+							<div className={b["col-sm-4"]}>
 								<Aside active={this.state.asideActive}
 									   onItemClick={this.handleClick}
 									   list={list}/>
 							</div>
-							<div className={s.demosOutput}>
+							<div className={b["col-sm-8"]}>
 								{this.state.output}
 							</div>
 						</div>

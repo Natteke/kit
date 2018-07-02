@@ -5,22 +5,26 @@ import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
-import s from '../../styles/docs.css'
+import s from '../../styles/docs.css';
+import b from '../../styles/bootstrap-grid.css';
 
 
 
-let News = AsyncComponent(() =>  import('./items/News.js'));
+let Welcome = AsyncComponent(() =>  import('./items/Welcome.js'));
 let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
+let Options = AsyncComponent(() =>  import('./items/Options.js'));
+let Templates = AsyncComponent(() =>  import('./items/Templates.js'));
 
-let items = {
-	News: <News/>,
-	Installation: <Installation/>
-};
+
+let items = {};
+items['Welcome'] = <Welcome bootstrap={b}/>;
+items['Installation'] = <Installation bootstrap={b}/>;
+items['Options'] = <Options bootstrap={b}/>;
+items['Templates'] = <Templates bootstrap={b}/>;
 
 let list = [
 	{
-		name: 'Getting Started',
-		items: ['News','Installation']
+		items: ['Welcome','Installation','Options','Templates']
 
 	}
 ];
@@ -30,8 +34,8 @@ class Docs extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			output: <News/>,
-			asideActive: 'News'
+			output: items['Welcome'],
+			asideActive: 'Welcome'
 		}
 	}
 

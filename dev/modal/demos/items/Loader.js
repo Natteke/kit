@@ -9,7 +9,6 @@ import '../../../../plugins/modal/templates/loader/kit.modal.loader-square.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-stripes.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-circles.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-spinner.css';
-import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
@@ -59,6 +58,7 @@ class Loader extends React.Component {
 	}
 
 	render() {
+		let b = this.props.bootstrap;
 		return(
 			<section className={s.commonSection}>
 				<div className={b.container}>

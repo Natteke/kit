@@ -10,7 +10,7 @@ import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
 
 
-class Installation extends React.Component {
+class Templates extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -31,7 +31,7 @@ class Installation extends React.Component {
 				<div className={b.container}>
 					<div className={b.row}>
 						<div className={b.col}>
-							<h1>Installation</h1>
+							<h1>Templates</h1>
 						</div>
 					</div>
 				</div>
@@ -39,4 +39,4 @@ class Installation extends React.Component {
 		)
 	}
 }
-export default Installation;
+export default Templates;

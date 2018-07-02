@@ -1,5 +1,6 @@
 .aside {
     width: 100%;
+    padding-right: 40px;
 }
 
 .asideInner {
@@ -26,10 +27,9 @@
 }
 
 .asideListItem {
-    padding: 15px 0;
-    padding-right: 40px;
+    padding: 15px;
     font-size: 1.1rem;
-    text-align: right;
+    text-align: left;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
@@ -40,5 +40,15 @@
 }
 
 .asideListItemActive {
-    padding-right: 20px;
+    padding-left: 40px;
+}
+
+@media (min-width: 768px) {
+    .asideListItem {
+        text-align: right;
+        padding: 15px 40px 15px 15px;
+    }
+    .asideListItemActive {
+        padding-right: 20px;
+    }
 }

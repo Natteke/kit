@@ -4,7 +4,6 @@ import React from 'react';
 // import StarButton from '../../../components/btn/StarButton.js'
 import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.css';
-import b from '../../../styles/bootstrap-grid.min.css';
 import s from '../../../styles/common.css';
 // import CodeHighlight from 'code-highlight';
 // import "highlight.js/styles/arduino-ligh-custom.css";
@@ -17,6 +16,7 @@ class Form extends React.Component {
 
 
 	render() {
+		let b = this.props.bootstrap;
 		return(
 			<section className={s.commonSection}>
 				<div className={b.container}>
