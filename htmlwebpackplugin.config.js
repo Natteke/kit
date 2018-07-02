@@ -6,10 +6,10 @@ module.exports = (options) => {
 	let	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 	let defaults = {
-		category: 'category',
-		keywords: 'keywords',
-		description: 'description',
-		author: 'author'
+		category: 'Information/AboutUs',
+		keywords: 'UI, select, modal, plugin, custom, web, site, solution, css, js, form, input, dropdown, list, own, create, options, callback, javascript, event',
+		description: 'Custom vanilla javascript plugin which allows you to create your awesome interface with custom options input, callbacks, events and more',
+		author: 'Andrey Ponomarenko'
 	};
 
 	let pages = [
