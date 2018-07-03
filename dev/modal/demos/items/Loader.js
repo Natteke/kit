@@ -60,8 +60,8 @@ class Loader extends React.Component {
 	render() {
 		let b = this.props.bootstrap;
 		return(
-			<section className={s.commonSection}>
-				<div className={b.container}>
+			<div>
+				<section className={s.commonSection}>
 					<div className={b.row}>
 						<div className={b.col}>
 							<h1 className={s.h1}>Modal Loader</h1>
@@ -169,67 +169,64 @@ class Loader extends React.Component {
 							</Note>
 						</div>
 					</div>
-				</div>
+				</section>
 				<div data-modal="square" className="kit_modal square">
-					<div className="modal_stage square-stage">
-						<div className="modal_stage square-inner"></div>
-					</div>
-				</div>
-
-				<div data-modal="rhombus" className="kit_modal rhombus">
-					<div className="modal_stage rhombus-stage">
-						<div className="modal_stage rhombus-inner">
-							<div className="sk-cube1 sk-cube"></div>
-							<div className="sk-cube2 sk-cube"></div>
-							<div className="sk-cube4 sk-cube"></div>
-							<div className="sk-cube3 sk-cube"></div>
+						<div className="modal_stage square-stage">
+							<div className="modal_stage square-inner"></div>
 						</div>
 					</div>
-				</div>
 
-				<div data-modal="stripes" className="kit_modal stripes">
-					<div className="modal_stage stripes-stage">
-						<div className="modal_stage stripes-inner">
-							<div className="rect1"></div>
-							<div className="rect2"></div>
-							<div className="rect3"></div>
-							<div className="rect4"></div>
-							<div className="rect5"></div>
+					<div data-modal="rhombus" className="kit_modal rhombus">
+						<div className="modal_stage rhombus-stage">
+							<div className="modal_stage rhombus-inner">
+								<div className="sk-cube1 sk-cube"></div>
+								<div className="sk-cube2 sk-cube"></div>
+								<div className="sk-cube4 sk-cube"></div>
+								<div className="sk-cube3 sk-cube"></div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div data-modal="circles" className="kit_modal circles">
-					<div className="modal_stage circles-stage">
-						<div className="sk-fading-circle">
-							<div className="sk-circle1 sk-circle"></div>
-							<div className="sk-circle2 sk-circle"></div>
-							<div className="sk-circle3 sk-circle"></div>
-							<div className="sk-circle4 sk-circle"></div>
-							<div className="sk-circle5 sk-circle"></div>
-							<div className="sk-circle6 sk-circle"></div>
-							<div className="sk-circle7 sk-circle"></div>
-							<div className="sk-circle8 sk-circle"></div>
-							<div className="sk-circle9 sk-circle"></div>
-							<div className="sk-circle10 sk-circle"></div>
-							<div className="sk-circle11 sk-circle"></div>
-							<div className="sk-circle12 sk-circle"></div>
+					<div data-modal="stripes" className="kit_modal stripes">
+						<div className="modal_stage stripes-stage">
+							<div className="modal_stage stripes-inner">
+								<div className="rect1"></div>
+								<div className="rect2"></div>
+								<div className="rect3"></div>
+								<div className="rect4"></div>
+								<div className="rect5"></div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div data-modal="spinner" className="kit_modal stripes">
-					<div className="modal_stage stripes-stage">
-						<div className="spinner">
-							<div className="cube1"></div>
-							<div className="cube2"></div>
+					<div data-modal="circles" className="kit_modal circles">
+						<div className="modal_stage circles-stage">
+							<div className="sk-fading-circle">
+								<div className="sk-circle1 sk-circle"></div>
+								<div className="sk-circle2 sk-circle"></div>
+								<div className="sk-circle3 sk-circle"></div>
+								<div className="sk-circle4 sk-circle"></div>
+								<div className="sk-circle5 sk-circle"></div>
+								<div className="sk-circle6 sk-circle"></div>
+								<div className="sk-circle7 sk-circle"></div>
+								<div className="sk-circle8 sk-circle"></div>
+								<div className="sk-circle9 sk-circle"></div>
+								<div className="sk-circle10 sk-circle"></div>
+								<div className="sk-circle11 sk-circle"></div>
+								<div className="sk-circle12 sk-circle"></div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-
-
-			</section>
+					<div data-modal="spinner" className="kit_modal stripes">
+						<div className="modal_stage stripes-stage">
+							<div className="spinner">
+								<div className="cube1"></div>
+								<div className="cube2"></div>
+							</div>
+						</div>
+					</div>
+			</div>
 		)
 	}
 

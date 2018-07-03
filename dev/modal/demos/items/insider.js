@@ -19,12 +19,10 @@ class Form extends React.Component {
 		let b = this.props.bootstrap;
 		return(
 			<section className={s.commonSection}>
-				<div className={b.container}>
-					<div className={b.row}>
-						<div className={b.col}>
-							<h1 className={s.h1}>Modal Insider</h1>
-							<p className={s.comment}>// under construction</p>
-						</div>
+				<div className={b.row}>
+					<div className={b.col}>
+						<h1 className={s.h1}>Modal Insider</h1>
+						<p className={s.comment}>// under construction</p>
 					</div>
 				</div>
 			</section>

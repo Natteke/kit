@@ -28,11 +28,9 @@ class Templates extends React.Component {
 		let b = this.props.bootstrap;
 		return (
 			<section className={s.commonSection}>
-				<div className={b.container}>
-					<div className={b.row}>
-						<div className={b.col}>
-							<h1>Templates</h1>
-						</div>
+				<div className={b.row}>
+					<div className={b.col}>
+						<h1>Templates</h1>
 					</div>
 				</div>
 			</section>

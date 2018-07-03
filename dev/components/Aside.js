@@ -13,17 +13,17 @@ class Aside extends React.Component {
 		let active;
 		return(
 			<aside className={s.aside}>
-				<div className={s.asideInner}>
+				<div className={s.inner}>
 					{this.props.list.map((e) => {
 						return (
-							<div key={'AsideSection_'+e.name} className={s.asideSection}>
+							<div key={'AsideSection_'+e.name} className={s.section}>
 								{e.name  && <h3>{e.name}</h3>}
-								<ul className={s.asideList}>
+								<ul className={s.list}>
 									{e.items.map((z) => {
-										active = z === this.props.active ? s.asideListItemActive : null;
+										active = z === this.props.active ? s["item-active"] : null;
 										return <li onClick={this.props.onItemClick}
 												   key={'Aside_'+z}
-												   className={[s.asideListItem, active].join(' ')}>{z}</li>
+												   className={[s.item, active].join(' ')}>{z}</li>
 									})}
 								</ul>
 							</div>
