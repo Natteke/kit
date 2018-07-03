@@ -3,7 +3,7 @@
 }
 
 .commonSection p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 30px;
     line-height: 1.7;
 }
@@ -13,7 +13,7 @@
 }
 
 .h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     border-top: 1px solid #ececec;
     margin-top: 40px;
     padding-top: 40px;
@@ -21,7 +21,7 @@
 }
 
 .h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 40px;
 }
 
@@ -86,4 +86,22 @@
     width: 6px;
     border-radius: 50%;
     background-color: #333333;
+}
+
+@media (max-width: 768px) {
+    .commonSection p {
+        font-size: 1rem;
+    }
+
+    .h1 {
+        font-size: 2.7rem;
+    }
+
+    .h2 {
+        font-size: 2rem;
+    }
+
+    .h3 {
+        font-size: 1.4rem;
+    }
 }

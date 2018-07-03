@@ -374,24 +374,6 @@ ul > li {
     list-style: none;
 }
 
-html {
-    font: normal 400 14px Lato, sans-serif;
-    overflow-y: scroll;
-}
-
-.bold {
-    font: normal 600 14px sans-serif;
-}
-
-.regular {
-    font: normal 400 14px Lato, sans-serif;
-}
-
-.light {
-    font: normal 300 14px Lato, sans-serif;
-}
-
-
 .wrapper {
     width: 100%;
     max-width: 1040px;
@@ -399,20 +381,18 @@ html {
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    html {
-        font: normal 400 16px Lato, sans-serif;
-    }
+html {
+    font: normal 400 16px Lato, sans-serif;
+}
 
-    .bold {
-        font: normal 600 16px sans-serif;
-    }
+.bold {
+    font: normal 600 16px sans-serif;
+}
 
-    .regular {
-        font: normal 400 16px Lato, sans-serif;
-    }
+.regular {
+    font: normal 400 16px Lato, sans-serif;
+}
 
-    .light {
-        font: normal 300 16px Lato, sans-serif;
-    }
+.light {
+    font: normal 300 16px Lato, sans-serif;
 }
