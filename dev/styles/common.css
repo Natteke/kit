@@ -58,10 +58,32 @@
 }
 
 .highlight {
-    background: rgba(255,229,100,0.3);
-    color: #333333;
+    background: rgba(255,229,100,0.2);
+    color: #1a1a1a;
 }
 
 .comment {
     color: rgba(149,165,166,.8);
+}
+
+.list {
+
+}
+
+.list li {
+    margin-top: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.list li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 3px);
+    left: 0;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: #333333;
 }

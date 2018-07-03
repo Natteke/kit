@@ -53,7 +53,7 @@ class Basic extends React.Component {
 									<CodeHighlight language="html">
 										<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal kit_none basic"&gt;</span>
 										<div className={s.code_levels}>
-											<span className={s.codeLine}>&lt;div class="stage basic-stage"&gt;</span>
+											<span className={s.codeLine}>&lt;div class="modal_stage basic-stage"&gt;</span>
 											<div className={s.code_levels}>
 												<span className={s.codeLine}>&lt;p class="basic-heading"&gt;This is a basic layout.&lt;/p&gt;</span>
 												<span className={s.codeLine}>&lt;p class="basic-text"&gt;But it can be easily modified to your requirements.&lt;/p&gt;</span>
