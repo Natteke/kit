@@ -18,7 +18,12 @@ class Header extends React.Component {
 	handleClick= () => this.setState({navOpen: !this.state.navOpen});
 
 	handleBlur = (e) => {
-		if(e.relatedTarget && e.relatedTarget.nodeName === 'A') return e.target.focus();
+		e.persist();
+		console.dir(e);
+		console.dir(e.relatedTarget);
+		if(e.relatedTarget && e.relatedTarget.nodeName === 'A') {
+			console.dir('goes focus');
+			return e.target.focus();}
 		timer = setTimeout(() => {
 			this.setState({ navOpen: false })
 		},0)
@@ -35,6 +40,7 @@ class Header extends React.Component {
 			return <a key={'header_' + e.name}
 					  download={e.download}
 					  href={e.href}
+					  tabIndex={0}
 					  className={s.headerNavItem}>{e.name}</a>
 		});
 

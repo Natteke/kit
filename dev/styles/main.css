@@ -376,6 +376,11 @@ ul > li {
 
 html {
     font: normal 400 14px Lato, sans-serif;
+    overflow-y: scroll;
+}
+
+*:focus {
+    outline: 2px red solid !important;
 }
 
 .bold {
