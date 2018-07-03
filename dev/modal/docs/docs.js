@@ -5,7 +5,7 @@ import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
-import s from '../../styles/docs.css';
+import s from '../../styles/common.css';
 import b from '../../styles/bootstrap-grid.css';
 
 
@@ -54,13 +54,15 @@ class Docs extends React.Component {
 				<Heading
 					heading={'Docs'}
 					version={config.version}/>
-				<section className={s.docs}>
+				<section className={s["main-flow"]}>
 					<div className={s.wrapper}>
-						<div className={s.docsContainer}>
-							<div className={s.docsAside}>
-								<Aside active={this.state.asideActive} onItemClick={this.handleClick} list={list}/>
+						<div className={[b.row,b["no-gutters"]].join(' ')}>
+							<div className={b["col-sm-4"]}>
+								<Aside active={this.state.asideActive}
+									   onItemClick={this.handleClick}
+									   list={list}/>
 							</div>
-							<div className={s.docsOutput}>
+							<div className={b["col-sm-8"]}>
 								{this.state.output}
 							</div>
 						</div>

@@ -67,11 +67,11 @@
 }
 
 .list {
-
+    margin-top: 20px;
 }
 
 .list li {
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
     padding-left: 20px;
 }

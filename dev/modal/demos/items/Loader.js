@@ -113,7 +113,7 @@ class Loader extends React.Component {
 							<h3 className={s.h3}>HTML</h3>
 							<div className={s.codeContainer}>
 								<CodeHighlight language="html">
-									<span className={s.codeLine}>&lt;div data-modal=&quot;circles&quot; class=&quot;kit_modal kit_none circles&quot;&gt;</span>
+									<span className={s.codeLine}>&lt;div data-modal=&quot;circles&quot; class=&quot;kit_modal circles&quot;&gt;</span>
 									<div className={s.code_levels}>
 										<span className={s.codeLine}>&lt;div class=&quot;modal_stage circles-stage&quot;&gt;</span>
 										<div className={s.code_levels}>
@@ -170,13 +170,13 @@ class Loader extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div data-modal="square" className="kit_modal kit_none square">
+				<div data-modal="square" className="kit_modal square">
 					<div className="modal_stage square-stage">
 						<div className="modal_stage square-inner"></div>
 					</div>
 				</div>
 
-				<div data-modal="rhombus" className="kit_modal kit_none rhombus">
+				<div data-modal="rhombus" className="kit_modal rhombus">
 					<div className="modal_stage rhombus-stage">
 						<div className="modal_stage rhombus-inner">
 							<div className="sk-cube1 sk-cube"></div>
@@ -187,7 +187,7 @@ class Loader extends React.Component {
 					</div>
 				</div>
 
-				<div data-modal="stripes" className="kit_modal kit_none stripes">
+				<div data-modal="stripes" className="kit_modal stripes">
 					<div className="modal_stage stripes-stage">
 						<div className="modal_stage stripes-inner">
 							<div className="rect1"></div>
@@ -199,7 +199,7 @@ class Loader extends React.Component {
 					</div>
 				</div>
 
-				<div data-modal="circles" className="kit_modal kit_none circles">
+				<div data-modal="circles" className="kit_modal circles">
 					<div className="modal_stage circles-stage">
 						<div className="sk-fading-circle">
 							<div className="sk-circle1 sk-circle"></div>
@@ -218,7 +218,7 @@ class Loader extends React.Component {
 					</div>
 				</div>
 
-				<div data-modal="spinner" className="kit_modal kit_none stripes">
+				<div data-modal="spinner" className="kit_modal stripes">
 					<div className="modal_stage stripes-stage">
 						<div className="spinner">
 							<div className="cube1"></div>

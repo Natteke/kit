@@ -67,7 +67,7 @@ class External extends React.Component {
 								<h3 className={s.h3}>HTML</h3>
 								<div className={s.codeContainer}>
 									<CodeHighlight language="html">
-										<span className={s.codeLine}>&lt;div data-modal="External" class="kit_modal kit_none modal_basic"&gt;</span>
+										<span className={s.codeLine}>&lt;div data-modal="External" class="kit_modal modal_basic"&gt;</span>
 										<div className={s.code_levels}>
 											<span className={s.codeLine}>&lt;div class="modal_stage modal_basic-stage"&gt;</span>
 											<div className={s.code_levels}>
@@ -115,7 +115,7 @@ class External extends React.Component {
 						</div>
 					</div>
 				</section>
-				<div data-modal="External" className="kit_modal kit_none basic">
+				<div data-modal="External" className="kit_modal basic">
 					<div className="modal_stage basic-stage">
 						<p className="basic-heading">You Shall Not Pass</p>
 						<p className="basic-text">Only the chosen one can pass here!</p>

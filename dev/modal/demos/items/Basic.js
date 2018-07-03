@@ -41,17 +41,10 @@ class Basic extends React.Component {
 								<h2 className={s.h2}>Pretty simple right?</h2>
 								<p>This (as you may thought) is the most common way to use Kit&nbsp;Modal. Everything is default. Only some styles for text and button inside.</p>
 								<h2 className={s.h2}>So here's the setup</h2>
-								<h3 className={s.h3}>CSS</h3>
+								<h3 className={s.h3}>HTML Modal</h3>
 								<div className={s.codeContainer}>
 									<CodeHighlight language="html">
-										<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.css&quot;&gt;</span>
-										<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.basic.css&quot;&gt;</span>
-									</CodeHighlight>
-								</div>
-								<h3 className={s.h3}>HTML</h3>
-								<div className={s.codeContainer}>
-									<CodeHighlight language="html">
-										<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal kit_none basic"&gt;</span>
+										<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal basic"&gt;</span>
 										<div className={s.code_levels}>
 											<span className={s.codeLine}>&lt;div class="modal_stage basic-stage"&gt;</span>
 											<div className={s.code_levels}>
@@ -68,13 +61,13 @@ class Basic extends React.Component {
 										<span className={s.codeLine}>&lt;/div&gt;</span>
 									</CodeHighlight>
 								</div>
-								<h3 className={s.h3}>JS</h3>
+								<h3 className={s.h3}>HTML Trigger</h3>
 								<div className={s.codeContainer}>
 									<CodeHighlight language="html">
-										<span className={s.codeLine}>&lt;script src=&quot;/js/kit.modal.js&quot;&gt;&lt;/script&gt;</span>
+										&lt;button data-trigger='Basic'&gt;Front of us&lt;/button&gt;
 									</CodeHighlight>
 								</div>
-								<h3 className={s.h3}>Calling the plugin</h3>
+								<h3 className={s.h3}>JS</h3>
 								<div className={s.codeContainer}>
 									<CodeHighlight language="javascript">
 										<span className={s.codeLine}>{'document.kit.modal.createModal(\'Basic\');'}</span>
@@ -84,7 +77,7 @@ class Basic extends React.Component {
 						</div>
 					</div>
 				</section>
-				<div data-modal="Basic" className="kit_modal kit_none basic">
+				<div data-modal="Basic" className="kit_modal basic">
 					<div className="modal_stage basic-stage">
 						<p className="basic-heading">This is a basic layout.</p>
 						<p className="basic-text">But it&nbsp;can be&nbsp;easily modified to&nbsp;your

@@ -346,13 +346,13 @@ template {
     box-sizing: border-box;
 }
 
-@font-face {
-    font-weight: 600;
-    font-family: 'Lato';
-    font-style: normal;
-    src:  url('./fonts/lato-bold-webfont.woff') format('woff'),
-        url('./fonts/lato-bold-webfont.woff2') format('woff2');
-}
+/*@font-face {*/
+    /*font-weight: 600;*/
+    /*font-family: 'Lato';*/
+    /*font-style: normal;*/
+    /*src:  url('./fonts/lato-bold-webfont.woff') format('woff'),*/
+        /*url('./fonts/lato-bold-webfont.woff2') format('woff2');*/
+/*}*/
 
 @font-face {
     font-weight: 400;
@@ -379,12 +379,8 @@ html {
     overflow-y: scroll;
 }
 
-*:focus {
-    outline: 2px red solid !important;
-}
-
 .bold {
-    font: normal 600 14px Lato, sans-serif;
+    font: normal 600 14px sans-serif;
 }
 
 .regular {
@@ -409,7 +405,7 @@ html {
     }
 
     .bold {
-        font: normal 600 16px Lato, sans-serif;
+        font: normal 600 16px sans-serif;
     }
 
     .regular {
