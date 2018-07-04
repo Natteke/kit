@@ -16,7 +16,8 @@ class Welcome extends React.Component {
 				<div className={b.row}>
 					<div className={b.col}>
 						<h1 className={s.h1}>Welcome</h1>
-						<h3 className={s.h3}>New Features</h3>
+						<p>Kit Modal is the javascript plugin, created to speed up your process of creating dialogs, notifications and pre-loaders for your web application.</p>
+						<h2 className={s.h2}>New Features</h2>
 						<ul className={s.list}>
 							<li>Asynchronous triggers support</li>
 							<li>Callback on trigger click</li>
@@ -50,7 +51,7 @@ class Welcome extends React.Component {
 						<ul className={s.list}>
 							<li>Create an issue <a href="https://github.com/Natteke/kit.modal/issues">here</a>.</li>
 							<li>Ask for a help <a href="https://stackoverflow.com/">here</a>.</li>
-							<li>Fix an issue and submit solution <a href="https://github.com/Natteke/kit.modal/issues">here</a>.</li>
+							<li>Submit solution <a href="https://github.com/Natteke/kit.modal/issues">here</a>.</li>
 						</ul>
 					</div>
 				</div>

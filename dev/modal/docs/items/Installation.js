@@ -29,7 +29,8 @@ class Installation extends React.Component {
 						</div>
 						<h3 className={s.h3}>Optional</h3>
 						<p>
-							It is optional, but if you want to use some of default styles, just connect them, or copy and paste styles from assets file into your stylesheet
+							It is optional, but if you want to use some of default styles, just connect them, or copy and paste styles from assets file into your stylesheet.
+							<br/>Like Basic for example.
 						</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
@@ -43,9 +44,9 @@ class Installation extends React.Component {
 						</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								<span className={s.codeLine}>&lt;div data-modal="Basic" class="kit_modal basic"&gt;</span>
+								<span className={s.codeLine}>&lt;div data-modal="Name" class="kit_modal"&gt;</span>
 								<div className={s.code_levels}>
-									<span className={s.codeLine}>&lt;div class="modal_stage basic-stage"&gt;</span>
+									<span className={s.codeLine}>&lt;div class="modal_stage"&gt;</span>
 										<div className={s.code_levels}>
 											&lt;!-- YOUR HTML CODE GOES HERE...	--&gt;
 										</div>
@@ -60,7 +61,7 @@ class Installation extends React.Component {
 							<br/>Triggers are using to summon modal window after user's action, but you can show and hide modal window using show/hide methods</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								&lt;button data-trigger='Basic'&gt;Front of us&lt;/button&gt;
+								&lt;button data-trigger='Name'&gt;Show Modal&lt;/button&gt;
 							</CodeHighlight>
 						</div>
 						<h3 className={s.h3}>Note</h3>
@@ -70,34 +71,13 @@ class Installation extends React.Component {
 							<li>Inner container should has <span className={s.highlight}>"modal_stage"</span> class name.</li>
 						</ul>
 						<h2 className={s.h2}>Javascript</h2>
-						<p>Connect source javascript.</p>
+						<p>Connect source javascript just before yours script.</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
 								<span className={s.codeLine}>&lt;script src=&quot;/js/kit.modal.js&quot;&gt;&lt;/script&gt;</span>
 							</CodeHighlight>
 						</div>
-						<p>Call the plugin with, or without parameters.
-							<br/>Like this:</p>
-						<div className={s.codeContainer}>
-							<CodeHighlight language="javascript">
-								<span className={s.codeLine}>{'kit.modal.createModal(\'Name\');'}</span>
-							</CodeHighlight>
-						</div>
-						<p>Or like this:</p>
-						<div className={s.codeContainer}>
-							<CodeHighlight language="javascript">
-								<span className={s.codeLine}>{'kit.modal.createModal(\'Name\',{\n    option: \'value\',\n    option: \'value\',\n    option: \'value\'\n});'}</span>
-							</CodeHighlight>
-						</div>
-						<p>
-							Check out options tab, to learn how you can adjust kit.modal up to your requirements.
-						</p>
-						<h3 className={s.h3}>Use kit as a shortcut</h3>
-						<Note>
-							Kit object with all your KIT plugins lay in the document, and you can get it with: <span className={s.highlight}>document.kit</span>.
-							<p>But in last patch we created a shortcut: <span className={s.highlight}>kit</span>, so now you can create modal window with the following: <span className={s.highlight}>kit.modal.createModal("Name")</span>, instead of <span className={s.highlight}>document.kit.modal.createModal("Name")</span></p>
-							<p>Not so short as $ in JQuery, but it's better than nothing, if to keep in mind that Kit plugins working without jquery at all.</p>
-						</Note>
+
 
 					</div>
 				</div>

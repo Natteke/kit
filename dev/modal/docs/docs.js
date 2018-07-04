@@ -8,23 +8,24 @@ import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/common.css';
 import b from '../../styles/bootstrap-grid.css';
 
-
-
 let Welcome = AsyncComponent(() =>  import('./items/Welcome.js'));
 let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
+let Activation = AsyncComponent(() =>  import('./items/Activation.js'));
 let Options = AsyncComponent(() =>  import('./items/Options.js'));
+let Methods = AsyncComponent(() =>  import('./items/Methods.js'));
 let Templates = AsyncComponent(() =>  import('./items/Templates.js'));
-
 
 let items = {};
 items['Welcome'] = <Welcome bootstrap={b}/>;
 items['Installation'] = <Installation bootstrap={b}/>;
+items['Activation'] = <Activation bootstrap={b}/>;
 items['Options'] = <Options bootstrap={b}/>;
+items['Functions'] = <Methods bootstrap={b}/>;
 items['Templates'] = <Templates bootstrap={b}/>;
 
 let list = [
 	{
-		items: ['Welcome','Installation','Options','Templates']
+		items: ['Welcome','Installation','Activation','Options','Functions','Templates']
 
 	}
 ];
