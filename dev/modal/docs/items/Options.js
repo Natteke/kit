@@ -19,7 +19,7 @@ class Options extends React.Component {
 							<li>Type: boolean</li>
 							<li>Default: false</li>
 						</ul>
-						<p>Required window could be closed only using show() method.</p>
+						<p>Required window could be closed only using hide() method.</p>
 						<h3 className={s["h3-border"]}>preventDefault</h3>
 						<ul className={s.list}>
 							<li>Type: boolean</li>

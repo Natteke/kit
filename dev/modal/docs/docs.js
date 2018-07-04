@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import config from '../section.config.js'
 import Header from '../../components/Header.js';
+import Footer from '../../components/Footer.js';
 import Heading from '../../components/Heading.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
@@ -12,7 +13,7 @@ let Welcome = AsyncComponent(() =>  import('./items/Welcome.js'));
 let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
 let Activation = AsyncComponent(() =>  import('./items/Activation.js'));
 let Options = AsyncComponent(() =>  import('./items/Options.js'));
-let Methods = AsyncComponent(() =>  import('./items/Methods.js'));
+let Functions = AsyncComponent(() =>  import('./items/Functions.js'));
 let Templates = AsyncComponent(() =>  import('./items/Templates.js'));
 
 let items = {};
@@ -20,7 +21,7 @@ items['Welcome'] = <Welcome bootstrap={b}/>;
 items['Installation'] = <Installation bootstrap={b}/>;
 items['Activation'] = <Activation bootstrap={b}/>;
 items['Options'] = <Options bootstrap={b}/>;
-items['Functions'] = <Methods bootstrap={b}/>;
+items['Functions'] = <Functions bootstrap={b}/>;
 items['Templates'] = <Templates bootstrap={b}/>;
 
 let list = [
@@ -69,6 +70,7 @@ class Docs extends React.Component {
 						</div>
 					</div>
 				</section>
+				<Footer/>
 			</div>
 
 		)

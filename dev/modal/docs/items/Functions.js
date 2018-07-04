@@ -3,7 +3,7 @@ import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
 
-class Methods extends React.Component {
+class Functions extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -29,7 +29,7 @@ class Methods extends React.Component {
 						</div>
 						<h3 className={s["h3"]}>.hide()</h3>
 						<p>
-							hide selected modal window
+							Hide selected modal window
 							<br/>Example:
 						</p>
 						<div className={s.codeContainer}>
@@ -77,4 +77,4 @@ class Methods extends React.Component {
 		)
 	}
 }
-export default Methods;
+export default Functions;
