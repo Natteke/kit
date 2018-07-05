@@ -1,1 +1,272 @@
-!function(e){var t={};function o(s){if(t[s])return t[s].exports;var i=t[s]={i:s,l:!1,exports:{}};return e[s].call(i.exports,i,i.exports,o),i.l=!0,i.exports}o.m=e,o.c=t,o.d=function(e,t,s){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:s})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var s=Object.create(null);if(o.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)o.d(s,i,function(t){return e[t]}.bind(null,i));return s},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="/Users/andrejponomarenko/Projects/kit.modal/prod/",o(o.s=0)}([function(e,t){document.kit||(document.kit={}),document.kit.modal||(document.kit.modal={});let o=document.documentElement;window.kit=document.kit;function s(e){e.preventDefault?e.preventDefault():e.returnValue=!1}function i(e){this.lockKeys.indexOf(e.keyCode)>=0&&s(e)}document.kit.modal.createModal=((e,t)=>{let n;document.kit.modal[e]=new class{constructor(e){this.id=e,this.modal=document.querySelector("[data-modal="+e+"]"),this.stage=document.querySelector("[data-modal="+e+"] .modal_stage"),this.scrollIsActive=!1,this.lockKeys=[32,33,34,35,36,37,38,39,40],this.elementsForScrollPadding=[],this.required=!1,this.preventDefault=!1,this.lockScroll=!0,this.absolute=!1,this.fixed=!1,this.storeInstances=!0,this.onShow=!1,this.onHide=!1,this.onTrigger=!1,this.stageIn="fadeInUp",this.stageOut="fadeOutDown"}show(e){this.modal.kitHasClass("kit_none")&&(this.modal.kitRemoveClass("kit_none"),this.stage.kitAddClass(this.stageIn),this.stage.focus(),this.modal.kitAddClass("kit_active"),this.lockScroll&&parseInt(window.getComputedStyle(o,null).height)>=window.innerHeight&&function(e){let t=o.offsetWidth;document.addEventListener("mousewheel",s),document.addEventListener("DOMMouseScroll",s),document.addEventListener("touchmove",s),document.addEventListener("keydown",i.bind(e)),o.kitAddClass("kit_document-live"),e.modal.kitAddClass("kit_modal-live"),e.elementsForScrollPadding.forEach(o=>o.style.paddingRight=e.modal.offsetWidth-t+"px"),e.scrollIsActive=!0}(this),this.onShow&&this.onShow(e))}hide(){var e;this.modal.kitHasClass("kit_none")||(this.modal.kitRemoveClass("kit_active"),this.stage.kitAddClass(this.stageOut),this.scrollIsActive&&(e=this,document.removeEventListener("mousewheel",s),document.removeEventListener("DOMMouseScroll",s),document.removeEventListener("touchmove",s),document.removeEventListener("keydown",i.bind(e)),e.elementsForScrollPadding.forEach(e=>e.style.paddingRight=""),o.kitRemoveClass("kit_document-live"),e.modal.kitRemoveClass("kit_modal-live"),e.scrollIsActive=!1),this.onHide&&this.onHide())}becomeFixed(){this.modal.style.position="fixed"}becomeAbsolute(){this.modal.style.position="absolute",this.modal.parentElement.kitAddClass("kit_relative")}addTrigger(e){let t=e=>{e.modal=this,e.addEventListener("click",e=>{this.preventDefault&&s(e),this.onTrigger&&this.onTrigger(e),this.show(e)}),e.addEventListener("mousedown",e=>{1===e.button&&(this.preventDefault&&s(e),this.onTrigger&&this.onTrigger(e),this.show(e))}),e.addEventListener("keydown",e=>{32===e.keyCode&&13===e.keyCode&&(this.preventDefault&&s(e),this.onTrigger&&this.onTrigger(e),this.show(e))})};switch(typeof e){case"object":t(e);break;case"string":let o=document.querySelectorAll(e);Object.keys(o).forEach(e=>t(o[e]));break;default:console.error('[KitModal] addTrigger takes ".selector" or an element object')}return this}}(e),n=document.kit.modal[e],t&&Object.assign(n,t),n.modal.style.position=n.absolute?n.becomeAbsolute():n.becomeFixed(),n.storeInstances&&function(e){let t,o=e.id;t="string"==typeof e.storeInstances?document.querySelectorAll(e.storeInstances):!!e.storeInstances&&document.querySelectorAll("[data-modal="+o+"] *");t&&Object.keys(t).forEach(e=>t[e].modal=document.kit.modal[o])}(n),function(e){let t=document.querySelectorAll(e.fixed);e.elementsForScrollPadding.push(o),e.fixed&&Object.keys(t).forEach(o=>e.elementsForScrollPadding.push(t[o]))}(n),n.stage.setAttribute("tabindex",0),n.modal.setAttribute("tabindex",0),n.modal.kitAddClass("kit_none"),function(e){let t,o=document.querySelectorAll("[data-trigger="+e.id+"]");(function(e,t){e.addEventListener("keydown",function(e){let o=e.keyCode;27!==o||t.required||t.hide()})})(e.stage,e),function(e,t){e.addEventListener("animationend",function(){e.kitRemoveClass(t.stageIn),e.kitHasClass(t.stageOut)&&(e.kitRemoveClass(t.stageOut),t.modal.kitAddClass("kit_none"))})}(e.stage,e),Object.keys(o).forEach(t=>e.addTrigger(o[t],e)),e.stage.addEventListener("blur",()=>{t=setTimeout(()=>{e.required||e.hide()},0)},!0),e.stage.addEventListener("focus",()=>clearTimeout(t),!0)}(n)}),Element.prototype.kitAddClass=function(e){return this.kitHasClass(e)||(this.className+=" "+e),this},Element.prototype.kitRemoveClass=function(e){return this.kitHasClass(e)&&(this.className=this.className.replace(new RegExp("[\\s]{0,1}\\b"+e+"\\b","g"),"")),this},Element.prototype.kitHasClass=function(e){return this.className.indexOf(e)>=0}}]);
+import './kit.modal.css';
+/**
+ * UI Kit Modal v1.1.0
+ * Copyright 2017-2019 Andrey Ponomarenko
+ * Licensed under  ()
+ */
+
+// ======================= MODEL ============================
+
+if	(!document.kit) document.kit = {};
+if	(!document.kit.modal) document.kit.modal = {};
+let doc = document.documentElement;
+window.kit = document.kit;
+
+// == Инициализация ==
+//data-modal - айди
+//data-trigger - id привязка к модалке
+
+//== Опции ==
+// position (string) - fixed/Absolute (На весь экран / в блоке)
+// required (true/false) - закрыть модалку можно только по методом hide
+// preventDefault (true/false) - будет отменять дефолтное действие по нажатию на триггер (если это напр ссылка)
+// fixed ('.string') - внести в список, если элемент в позиции fixed и прижат к правому краю
+// storeInstances(true/false/.string) - В каких элементах хранить ссылку на модалку (по дефолту тру, хранит во всех чилдренах модалки)
+
+// == Методы окна ==
+// show() - показать окно
+// hide() - скрыть окно
+// addTrigger(element / '.selector') - добавить триггер
+// becomeFixed() - делает окно фиксированным
+// becomeAbsolute() - делает окно абсолютным
+
+// == Глобальные методы ==
+// createModal - создает модальное окно
+
+// == Коллбеки ==
+//onShow(event)
+// this - модальное окно
+// event - event
+
+//onHide()
+// this - модальное окно
+
+//onTrigger(event)
+// this - модальное окно
+// event - event
+
+// == Полезные параметры ==
+// this.id - идентификатор модального окна
+// this.modal - элемент модалка
+// this.stage - внутреннее окно
+//
+
+
+class KitModal {
+	constructor(id) {
+		this.id = id;
+		this.modal = document.querySelector('[data-modal='+id+']');
+		this.stage = document.querySelector('[data-modal='+id+'] .modal_stage');
+		this.scrollIsActive = false;
+		this.lockKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+		this.elementsForScrollPadding = [];
+
+		this.required = false;
+		this.preventDefault = false;
+		this.lockScroll = true;
+		this.absolute = false;
+		this.fixed = false;
+		this.storeInstances = true;
+
+		//Callbacks
+		this.onShow = false;
+		this.onHide = false;
+		this.onTrigger = false;
+
+		//Animations
+		this.stageIn = "fadeInUp";
+		this.stageOut = "fadeOutDown";
+	}
+
+	show(e) {
+		if(!this.modal.kitHasClass("kit_none")) return;
+		this.modal.kitRemoveClass("kit_none");
+		this.stage.kitAddClass(this.stageIn);
+		this.stage.focus();
+		this.modal.kitAddClass("kit_active");
+		if(this.lockScroll && isScroll()) lockScroll(this);
+		if(this.onShow) this.onShow(e);
+	}
+
+	hide() {
+		if(this.modal.kitHasClass("kit_none")) return;
+		this.modal.kitRemoveClass("kit_active");
+		this.stage.kitAddClass(this.stageOut);
+		if(this.scrollIsActive) releaseScroll(this);
+		if(this.onHide) this.onHide();
+	}
+
+	becomeFixed() {
+		this.modal.style.position = 'fixed';
+
+	}
+
+	becomeAbsolute() {
+		this.modal.style.position = 'absolute';
+		this.modal.parentElement.kitAddClass('kit_relative');
+	}
+
+	addTrigger (input) {
+		let set = (element) => {
+			element.modal = this;
+			element.addEventListener('click', (e) => {
+				if (this.preventDefault) preventDefault(e);
+				if(this.onTrigger) this.onTrigger(e);
+				this.show(e);
+			});
+			element.addEventListener('mousedown', (e) => {
+				if (e.button !== 1) return;
+				if (this.preventDefault) preventDefault(e);
+				if(this.onTrigger) this.onTrigger(e);
+				this.show(e);
+			});
+			element.addEventListener('keydown', (e) => {
+				if(e.keyCode !== 32 || e.keyCode !== 13 ) return;
+				if (this.preventDefault) preventDefault(e);
+				if(this.onTrigger) this.onTrigger(e);
+				this.show(e);
+			});
+		};
+		switch (typeof input) {
+			case 'object':
+				set(input);
+				break;
+			case 'string':
+				let o = document.querySelectorAll(input);
+				Object.keys(o).forEach((e) => set(o[e]));
+				break;
+			default:
+				console.error('[KitModal] addTrigger takes ".selector" or an element object')
+		}
+		return this;
+	}
+}
+
+document.kit.modal.createModal = (id, params) => {
+	let m;
+	document.kit.modal[id] = new KitModal(id);
+	m = document.kit.modal[id];
+	if(params) Object.assign(m,params);
+	m.modal.style.position = m.absolute ? m.becomeAbsolute() : m.becomeFixed();
+	if(m.storeInstances) linkInstances(m);
+	setElementsForScrollPadding(m);
+	m.stage.setAttribute('tabindex',0);
+	m.modal.setAttribute('tabindex',0);
+	m.modal.kitAddClass('kit_none');
+	setListeners(m)
+};
+
+function setElementsForScrollPadding(obj) {
+	let e = document.querySelectorAll(obj.fixed);
+	obj.elementsForScrollPadding.push(doc);
+	if(obj.fixed) Object.keys(e).forEach((i) =>
+		obj.elementsForScrollPadding.push(e[i]));
+}
+
+function linkInstances(obj) {
+	let id = obj.id,
+	el;
+	if(typeof obj.storeInstances === 'string') {
+		el = document.querySelectorAll(obj.storeInstances);
+	} else if (obj.storeInstances) {
+		el = document.querySelectorAll('[data-modal='+id+'] *');
+	} else {
+		el = false;
+	}
+	if(el)Object.keys(el).forEach((i) => el[i].modal = document.kit.modal[id]);
+}
+
+function setListeners(obj) {
+	let triggers = document.querySelectorAll('[data-trigger='+obj.id+']'),
+	timer;
+	setKeyDownListener(obj.stage,obj);
+	setAnimationEndListener(obj.stage, obj);
+	Object.keys(triggers).forEach((e) => obj.addTrigger(triggers[e],obj));
+	//
+	// obj.modal.addEventListener('click', function(e) {
+	// 	if(e.target === this && !obj.required) obj.hide();
+	// });
+
+	obj.stage.addEventListener('blur', () => {
+		timer = setTimeout(() => {
+			if(!obj.required) obj.hide();
+		},0);
+	},true);
+	obj.stage.addEventListener('focus',(() => clearTimeout(timer)), true);
+}
+
+function setKeyDownListener(element, obj) {
+	element.addEventListener('keydown',function (e) {
+		let k = e.keyCode;
+		if(k === 27 && !obj.required) obj.hide();
+	});
+}
+
+function setAnimationEndListener(element, obj) {
+	element.addEventListener('animationend', function () {
+		element.kitRemoveClass(obj.stageIn);
+		if (element.kitHasClass(obj.stageOut)) {
+			element.kitRemoveClass(obj.stageOut);
+			obj.modal.kitAddClass("kit_none");
+		}
+	});
+}
+
+function lockScroll (obj) {
+	//important to save width in variable to determinate scroll, before applying 'scroll_hide' to document;
+	let width = doc.offsetWidth;
+	document.addEventListener('mousewheel', preventDefault);
+	document.addEventListener('DOMMouseScroll', preventDefault);
+	document.addEventListener('touchmove', preventDefault);
+	document.addEventListener('keydown', preventKeys.bind(obj));
+	doc.kitAddClass('kit_document-live');
+	obj.modal.kitAddClass('kit_modal-live');
+	obj.elementsForScrollPadding.forEach((t) =>
+		t.style.paddingRight = (obj.modal.offsetWidth - width) + 'px');
+	obj.scrollIsActive = true;
+}
+
+function releaseScroll(obj) {
+	document.removeEventListener('mousewheel', preventDefault);
+	document.removeEventListener('DOMMouseScroll', preventDefault);
+	document.removeEventListener('touchmove', preventDefault);
+	document.removeEventListener('keydown', preventKeys.bind(obj));
+	obj.elementsForScrollPadding.forEach((t) =>
+		t.style.paddingRight = '');
+	doc.kitRemoveClass('kit_document-live');
+	obj.modal.kitRemoveClass('kit_modal-live');
+	obj.scrollIsActive = false;
+}
+
+function preventDefault(e) {
+	e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+}
+
+function isScroll() {
+	return parseInt(window.getComputedStyle(doc ,null).height) >= window.innerHeight;
+}
+function preventKeys (e) {
+	if(this.lockKeys.indexOf(e.keyCode) >= 0) {
+		preventDefault(e);
+	}
+}
+
+Element.prototype.kitAddClass = function (classN) {
+	if(!this.kitHasClass(classN)) this.className += " " + classN;
+	return this;
+};
+
+Element.prototype.kitRemoveClass = function (classN) {
+	this.kitHasClass(classN) ? this.className = this.className.replace(new RegExp('[\\s]{0,1}\\b' + classN + '\\b',"g"),"") : false;
+	return this;
+};
+
+Element.prototype.kitHasClass = function (classN) {
+	return this.className.indexOf(classN) >= 0;
+};
+
+
+
+
+
+

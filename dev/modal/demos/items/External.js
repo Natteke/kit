@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../../plugins/modal/kit.modal.js';
-import '../../../../plugins/modal/kit.modal.css';
+import '../../../../plugins/modal/kit.modal.min.js';
+import '../../../../plugins/modal/kit.modal.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";

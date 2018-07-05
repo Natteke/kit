@@ -73,6 +73,17 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.(zip)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'downloads/[name].[ext]'
+						}
+					}
+				]
 			}
 		]
 	},

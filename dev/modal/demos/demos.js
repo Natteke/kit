@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import config from '../section.config.js'
 import Header from '../../components/Header.js';
 import Heading from '../../components/Heading.js';
-import Footer from '../../components/Footer.js';
+// import Footer from '../../components/Footer.js';
 import Aside from '../../components/Aside.js';
 import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/common.css';
@@ -68,7 +68,7 @@ class Docs extends React.Component {
 						</div>
 					</div>
 				</section>
-				<Footer/>
+				{/*<Footer/>*/}
 			</div>
 
 		)

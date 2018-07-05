@@ -128,19 +128,18 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.(zip)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'downloads/[name].[ext]'
+						}
+					}
+				]
 			}
-
-			// {
-			// 	test: /\.(png|jpg)$/,
-			// 	use: [
-			// 		{
-			// 			loader: 'file-loader',
-			// 			options: {
-			// 				name: '[path][name].[ext]'
-			// 			}
-			// 		}
-			// 	]
-			// }
 		]
 	},
 	plugins: htmGeneratorConfig.concat([

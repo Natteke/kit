@@ -1,3 +1,4 @@
+import '../../plugins/modal/kit.modal.zip';
 let config = {
 	// [2] true -> download (y/n)
 	headerLinks: [
@@ -23,7 +24,7 @@ let config = {
 		},
 		{
 			name: 'Download',
-			href: '/kit/modal/download',
+			href: '/kit/downloads/kit.modal.zip',
 			download: true
 		},
 	],
