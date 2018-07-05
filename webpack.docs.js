@@ -135,7 +135,8 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'downloads/[name].[ext]'
+							name: 'downloads/[name].[ext]',
+							publicPath: '/kit'
 						}
 					}
 				]
