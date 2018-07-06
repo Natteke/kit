@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../plugins/modal/kit.modal.min.js';
+import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.min.css';
 import '../../../../plugins/modal/templates/basic/kit.modal.basic.css';
 import StarButton from '../../../components/btn/StarButton.js'

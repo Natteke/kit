@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../plugins/modal/kit.modal.min.js';
+import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.min.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';

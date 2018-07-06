@@ -2,7 +2,7 @@ import React from 'react';
 import Note from '../../../components/Note.js';
 import Button from '../../../components/btn/Button.js';
 import StarButton from '../../../components/btn/StarButton.js';
-import '../../../../plugins/modal/kit.modal.min.js';
+import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.min.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-rhombus.css';
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-square.css';
