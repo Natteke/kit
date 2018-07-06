@@ -61,7 +61,7 @@ class Header extends React.Component {
 								<img src={logo} alt=""/>
 								<p>Find&nbsp;me&nbsp;on&nbsp;GitHub</p>
 							</a>
-							<div className={s.headerNavContainer}>
+							<div tabIndex={0} className={s.headerNavContainer}>
 								<nav className={s.headerNav}>
 									{links}
 								</nav>

@@ -26,7 +26,7 @@ class Options extends React.Component {
 							<li>Default: false</li>
 						</ul>
 						<p>
-							Prevent default action, when users click on trigger
+							Prevent default action, when user clicks on trigger
 							<br/>Link for example.
 						</p>
 						<h3 className={s["h3-border"]}>storeInstances</h3>
