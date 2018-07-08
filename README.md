@@ -1,4 +1,4 @@
-#KIT WEBSITE :squirrel:
+# KIT WEBSITE :squirrel:
 This repository contains pages with information about KIT plugins
 
 ### Links
