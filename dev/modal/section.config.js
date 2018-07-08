@@ -2,16 +2,16 @@ import '../../plugins/modal/kit.modal.zip';
 let config = {
 	// [2] true -> download (y/n)
 	headerLinks: [
-		{
-			name: 'Home',
-			href: '/kit',
-			download: false
-		},
-		{
-			name: 'About',
-			href: '/kit/modal',
-			download: false
-		},
+		// {
+		// 	name: 'Home',
+		// 	href: '/kit',
+		// 	download: false
+		// },
+		// {
+		// 	name: 'About',
+		// 	href: '/kit/modal',
+		// 	download: false
+		// },
 		{
 			name: 'Demos',
 			href: '/kit/modal/demos',
