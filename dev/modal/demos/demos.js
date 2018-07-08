@@ -57,12 +57,12 @@ class Docs extends React.Component {
 				<section className={s["main-flow"]}>
 					<div className={s.wrapper}>
 						<div className={[b.row,b["no-gutters"]].join(' ')}>
-							<div className={b["col-sm-4"]}>
+							<div className={[b["col-sm-4"],b["col-gutters"]].join(' ')}>
 								<Aside active={this.state.asideActive}
 									   onItemClick={this.handleClick}
 									   list={list}/>
 							</div>
-							<div className={b["col-sm-8"]}>
+							<div className={[b["col-sm-8"],b["col-gutters"]].join(' ')}>
 								{this.state.output}
 							</div>
 						</div>

@@ -72,7 +72,8 @@ html {
 }
 
 .no-gutters > .col,
-.no-gutters > [class*="col-"] {
+.no-gutters > [class*="col-"],
+.no-gutters > .col-gutters {
   padding-right: 0;
   padding-left: 0;
 }
