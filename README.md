@@ -1,8 +1,8 @@
-# KIT WEBSITE :squirrel:
+# KIT WEBSITE
 This repository contains pages with information about KIT plugins
 
 ### Links
-Kit Modal - https://natteke.github.io/kit/modal/demos/
+Kit Modal :tada: - https://natteke.github.io/kit/modal/demos/
 
 ### What is KIT PLUGINS?
 KIT PLUGINS is an open source interface plugins allowing you to create custom UI elements with a blink of an eye :rocket:
