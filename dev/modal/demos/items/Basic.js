@@ -49,7 +49,7 @@ class Basic extends React.Component {
 										<div className={s.code_levels}>
 											<span className={s.codeLine}>&lt;p class="basic-heading"&gt;This is a basic layout.&lt;/p&gt;</span>
 											<span className={s.codeLine}>&lt;p class="basic-text"&gt;But it can be easily modified to your requirements.&lt;/p&gt;</span>
-											<span className={s.codeLine}>&lt;div className=&quot;basic-container&quot;&gt;</span>
+											<span className={s.codeLine}>&lt;div class=&quot;basic-container&quot;&gt;</span>
 											<div className={s.code_levels}>
 												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class="basic-button" type="button"&gt;CLOSE&lt;/button&gt;</span>
 											</div>

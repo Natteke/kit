@@ -72,10 +72,10 @@ class External extends React.Component {
 										<div className={s.code_levels}>
 											<span className={s.codeLine}>&lt;p class="modal_basic-heading"&gt;You Shall Not Pass&lt;/p&gt;</span>
 											<span className={s.codeLine}>&lt;p class="modal_basic-text"&gt;Only the chosen one can pass here!&lt;/p&gt;</span>
-											<span className={s.codeLine}>&lt;div className=&quot;basic-buttons-container&quot;&gt;</span>
+											<span className={s.codeLine}>&lt;div class=&quot;basic-buttons-container&quot;&gt;</span>
 											<div className={s.code_levels}>
-												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" className=&quot;basic-button&quot; type=&quot;button&quot;&gt; STEP BACK &lt;/button&gt;</span>
-												<span className={s.codeLine}>&lt;a className=&quot;basic-button exit-link&quot; href=&quot;#&quot; target=&quot;_blank&quot;&gt; I AM THE CHOSEN ONE! &lt;/a&gt;</span>
+												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class=&quot;basic-button&quot; type=&quot;button&quot;&gt; STEP BACK &lt;/button&gt;</span>
+												<span className={s.codeLine}>&lt;a class=&quot;basic-button exit-link&quot; href=&quot;#&quot; target=&quot;_blank&quot;&gt; I AM THE CHOSEN ONE! &lt;/a&gt;</span>
 											</div>
 											<span className={s.codeLine}>&lt;/div&gt;</span>
 										</div>
