@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build",
     "server": "webpack-dev-server --open --config webpack.dev.js",
+    "server:prod": "webpack-dev-server --config webpack.docs.js",
     "build": "webpack-dev-server --config webpack.dev.js && webpack --config webpack.dev.js",
     "prod": "webpack --config webpack.docs.js && webpack-dev-server --config webpack.docs.js"
   },
