@@ -1,6 +1,6 @@
 .aside {
     width: 100%;
-    padding-right: 40px;
+    padding-right: 0px;
 }
 
 .inner {
@@ -41,6 +41,12 @@
 
 .item-active {
     padding-left: 40px;
+}
+
+@media (min-width: 576px) {
+    .aside {
+        padding-right: 40px;
+    }
 }
 
 @media (min-width: 768px) {

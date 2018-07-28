@@ -13,20 +13,20 @@ module.exports = (options) => {
 	};
 
 	let pages = [
-		{
-			title: 'Home',
-			filename: output + 'index.html',
-			canonical: 'https://natteke.github.io/kit/',
-			template: dev + 'templates/home.template.html',
-			chunks: ['home']
-		},
-		{
-			title: 'About | Modal',
-			filename: output + 'modal/index.html',
-			canonical: 'https://natteke.github.io/kit/modal/',
-			template: dev + 'templates/about.template.html',
-			chunks: ['modal/modal']
-		},
+		// {
+		// 	title: 'Home',
+		// 	filename: output + 'index.html',
+		// 	canonical: 'https://natteke.github.io/kit/',
+		// 	template: dev + 'templates/home.template.html',
+		// 	chunks: ['home']
+		// },
+		// {
+		// 	title: 'About | Modal',
+		// 	filename: output + 'modal/index.html',
+		// 	canonical: 'https://natteke.github.io/kit/modal/',
+		// 	template: dev + 'templates/about.template.html',
+		// 	chunks: ['modal/modal']
+		// },
 		{
 			title: 'Docs | Modal',
 			filename: output + 'modal/docs/index.html',
@@ -41,6 +41,22 @@ module.exports = (options) => {
 			canonical: 'https://natteke.github.io/kit/modal/demos/',
 			template: dev + 'templates/demos.template.html',
 			chunks: ['modal/demos/demos']
+
+		},
+		{
+			title: 'Docs | Locker',
+			filename: output + 'locker/docs/index.html',
+			canonical: 'https://natteke.github.io/kit/locker/docs/',
+			template: dev + 'templates/docs.template.html',
+			chunks: ['locker/docs/docs']
+
+		},
+		{
+			title: 'Demos | Locker',
+			filename: output + 'locker/demos/index.html',
+			canonical: 'https://natteke.github.io/kit/modal/demos/',
+			template: dev + 'templates/demos.template.html',
+			chunks: ['locker/demos/demos']
 
 		},
 	];

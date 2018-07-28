@@ -11,10 +11,13 @@ let path = require('path'),
 module.exports = {
 	mode: 'development',
 	entry: {
-		'home': common.dev + 'home.js',
-		'modal/modal': common.dev + 'modal/modal.js',
-		'modal/docs/docs': common.dev + 'modal/docs/docs.js',
-		'modal/demos/demos': common.dev + 'modal/demos/demos.js'
+		// 'home': common.dev + 'home.js',
+		// 'modal/modal': common.dev + 'modal/modal.js',
+
+		// 'modal/docs/docs': common.dev + 'modal/docs/docs.js',
+		// 'modal/demos/demos': common.dev + 'modal/demos/demos.js',
+		'locker/docs/docs': common.dev + 'locker/docs/docs.js',
+		'locker/demos/demos': common.dev + 'locker/demos/demos.js',
 	},
 	output: {
 		path: common.dist,

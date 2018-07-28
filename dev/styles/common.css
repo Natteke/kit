@@ -95,6 +95,8 @@
     background-color: #333333;
 }
 
+
+
 @media (max-width: 768px) {
     .commonSection p {
         font-size: 1rem;
