@@ -46,7 +46,7 @@ class Header extends React.Component {
 
 		return(
 			<div className={s.headerOuterContainer}>
-				<header className={s.header}>
+				<header className={[s.header, 'kit-set-fixed'].join(' ')}>
 					<div className={s.wrapper}>
 						<div className={navStyle}>
 							<div className={s.headerHamburgerContainer}>
