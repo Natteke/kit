@@ -3,6 +3,7 @@ This repository contains pages with information about KIT plugins
 
 ### Links
 Kit Modal :tada: - https://natteke.github.io/kit/modal/demos/
+Kit Locker :tada: - https://natteke.github.io/kit/locker/demos/
 
 ### What is KIT PLUGINS?
 KIT PLUGINS is an open source interface plugins allowing you to create custom UI elements with a blink of an eye :rocket:.
