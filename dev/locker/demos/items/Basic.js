@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../../plugins/locker/kit.locker.js'
-import '../../../../plugins/locker/kit.locker.css'
 import StarButton from '../../../components/btn/StarButton.js'
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';

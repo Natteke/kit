@@ -1,4 +1,4 @@
-// import '../../plugins/modal/kit.locker.zip';
+import '../../plugins/locker/kit.locker.zip';
 let config = {
 	// [2] true -> download (y/n)
 	headerLinks: [
