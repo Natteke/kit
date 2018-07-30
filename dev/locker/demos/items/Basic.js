@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../../plugins/locker/kit.locker.js'
+import '../../../../plugins/locker/kit.locker.min.css'
 import StarButton from '../../../components/btn/StarButton.js'
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
@@ -13,18 +14,27 @@ class Basic extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		kit.locker.createLocker();
-	}
+	onScrollLock = () => {
+		this.setState({buttonText: 'Release Scroll'});
+	};
+
+	onScrollRelease = () => {
+		this.setState({buttonText: 'Lock Scroll'})
+	};
+
+	componentDidMount = () => {
+		kit.locker.createLocker({
+			onLock: this.onScrollLock,
+			onRelease: this.onScrollRelease
+		});
+	};
 
 
 	handleClick = () => {
 		const k = kit.locker;
 		if(k.instance.active) {
 			k.unlock();
-			this.setState({buttonText: 'Lock Scroll'})
 		} else {
-			this.setState({buttonText: 'Release Scroll'});
 			k.lock();
 		}
 	};
