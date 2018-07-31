@@ -19,8 +19,8 @@ module.exports = {
 	entry: {
 		// 'home': common.dev + 'home.js',
 		// 'modal/modal': common.dev + 'modal/modal.js',
-		// 'modal/docs/docs': common.dev + 'modal/docs/docs.js',
-		// 'modal/demos/demos': common.dev + 'modal/demos/demos.js',
+		'modal/docs/docs': common.dev + 'modal/docs/docs.js',
+		'modal/demos/demos': common.dev + 'modal/demos/demos.js',
 		'locker/docs/docs': common.dev + 'locker/docs/docs.js',
 		'locker/demos/demos': common.dev + 'locker/demos/demos.js',
 	},
