@@ -48,7 +48,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				include: common.dev,
+				include: common.prod,
 				loader: "babel-loader",
 				query: {
 					presets:['react', 'es2015', 'stage-2']
