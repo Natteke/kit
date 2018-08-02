@@ -1,5 +1,4 @@
 import React from 'react';
-import 'promise-polyfill/src/polyfill';
 import '../styles/main.css';
 import s from '../styles/componentStyles/header.css'
 import h from '../styles/componentStyles/btn/Hamburger.css'
