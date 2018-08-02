@@ -1,5 +1,6 @@
 import React from 'react';
-import main from '../styles/main.css';
+import 'promise-polyfill/src/polyfill';
+import '../styles/main.css';
 import s from '../styles/componentStyles/header.css'
 import h from '../styles/componentStyles/btn/Hamburger.css'
 import logo from '../images/git.png'
