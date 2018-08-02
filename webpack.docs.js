@@ -149,9 +149,6 @@ module.exports = {
 		new webpack.DefinePlugin({
 	  		'process.env.NODE_ENV': JSON.stringify('production')
 		}),
-		new webpack.ProvidePlugin({
-			Promise: 'es6-promise-promise'
-		}),
 		// собирает css файлы в 1
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
