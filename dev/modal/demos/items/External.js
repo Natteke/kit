@@ -39,23 +39,7 @@ class External extends React.Component {
 					<div className={b.row}>
 						<div className={b.col}>
 							<h1 className={s.h1}>Modal External</h1>
-							<p>
-								This topic will be serious. No fancy space-buttons and jokes.
-							</p>
-							<h3 className={s.h3}>Thinking about user</h3>
-							<p>
-								We’ll assume that today you open your site, which contains discounts for all licensed programs on the planet, with links to the source of course.
-								<br/> Daily  thousands of developers writing you about placement an ad on your site.
-							</p>
-							<p>
-								At some point you are wondering, what if some of their sites could be malicious?
-								<br/>You do not want to be responsible if the user suddenly loses all his data after going to a external site.
-							</p>
-							<p>
-								At least you should notify them about it, right?
-							</p>
-							<h3 className={s.h3}>We have the solution</h3>
-							<p>Let's ask for the help <a data-trigger="External" href="http://stackoverflow.com/">here</a>.</p>
+							<p>Click to proceed to external site <a data-trigger="External" href="http://stackoverflow.com/">here</a>.</p>
 							<h2 className={s.h2}>And here's the setup</h2>
 							<div className={s.codeContainer}>
 								<CodeHighlight language="html">
@@ -68,14 +52,14 @@ class External extends React.Component {
 								<CodeHighlight language="html">
 									<span className={s.codeLine}>&lt;div data-modal="External" class="kit_modal modal_basic"&gt;</span>
 									<div className={s.code_levels}>
-										<span className={s.codeLine}>&lt;div class="modal_stage modal_basic-stage"&gt;</span>
+										<span className={s.codeLine}>&lt;div class="modal_stage basic-stage"&gt;</span>
 										<div className={s.code_levels}>
-											<span className={s.codeLine}>&lt;p class="modal_basic-heading"&gt;You Shall Not Pass&lt;/p&gt;</span>
-											<span className={s.codeLine}>&lt;p class="modal_basic-text"&gt;Only the chosen one can pass here!&lt;/p&gt;</span>
+											<span className={s.codeLine}>&lt;p class="basic-heading"&gt;You are leaving our website.&lt;/p&gt;</span>
+											<span className={s.codeLine}>&lt;p class="basic-text"&gt;Click «Continue» to proceed, or «Cancel» to stay on our site.&lt;/p&gt;</span>
 											<span className={s.codeLine}>&lt;div class=&quot;basic-buttons-container&quot;&gt;</span>
 											<div className={s.code_levels}>
-												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class=&quot;basic-button&quot; type=&quot;button&quot;&gt; STEP BACK &lt;/button&gt;</span>
-												<span className={s.codeLine}>&lt;a class=&quot;basic-button exit-link&quot; href=&quot;#&quot; target=&quot;_blank&quot;&gt; I AM THE CHOSEN ONE! &lt;/a&gt;</span>
+												<span className={s.codeLine}>&lt;button onClick="this.modal.hide()" class=&quot;basic-button&quot; type=&quot;button&quot;&gt; Cansel &lt;/button&gt;</span>
+												<span className={s.codeLine}>&lt;a class=&quot;basic-button exit-link&quot; href=&quot;#&quot; target=&quot;_blank&quot;&gt; Continue &lt;/a&gt;</span>
 											</div>
 											<span className={s.codeLine}>&lt;/div&gt;</span>
 										</div>
@@ -115,16 +99,16 @@ class External extends React.Component {
 				</section>
 				<div data-modal="External" className="kit_modal basic">
 					<div className="modal_stage basic-stage">
-						<p className="basic-heading">You Shall Not Pass</p>
-						<p className="basic-text">Only the chosen one can pass here!</p>
+						<p className="basic-heading">You are leaving our website.</p>
+						<p className="basic-text">Click «Continue» to proceed, or «Cancel» to stay on our site.</p>
 						<div className="basic-container">
 							<button onClick={this.modalClose}
 									className="basic-button"
 									type="button">
-								STEP BACK
+								Cancel
 							</button>
 							<a target="_blank" className="basic-button exit-link" href='#'>
-								I AM THE CHOSEN ONE!
+								Continue
 							</a>
 						</div>
 					</div>

@@ -387,6 +387,7 @@ ul > li {
 html {
     font: normal 400 16px Lato, sans-serif;
     color: #333333;
+    overflow-y: scroll;
 }
 
 .bold {
