@@ -43,15 +43,15 @@ class Welcome extends React.Component {
 						<h2 className={s.h2}>How do i get more features?</h2>
 						<p>You can:</p>
 						<ul className={s.list}>
-							<li>Request more features in <a href="https://github.com/Natteke/kit.modal">this</a> repository.</li>
+							<li>Request more features in the <a href="https://github.com/Natteke/kit.modal">repository</a>.</li>
 							<li>Add some feature and merge it with original plugin.</li>
 						</ul>
 						<h2 className={s.h2}>Something went wrong?</h2>
 						<p>You can:</p>
 						<ul className={s.list}>
-							<li>Create an issue <a href="https://github.com/Natteke/kit.modal/issues">here</a>.</li>
-							<li>Ask for a help <a href="https://stackoverflow.com/">here</a>.</li>
-							<li>Submit solution <a href="https://github.com/Natteke/kit.modal/issues">here</a>.</li>
+							<li>Create an <a href="https://github.com/Natteke/kit.modal/issues">issue</a>.</li>
+							<li>Ask for a <a href="https://stackoverflow.com/">help</a>.</li>
+							<li>Submit <a href="https://github.com/Natteke/kit.modal/issues">solution</a>.</li>
 						</ul>
 					</div>
 				</div>
