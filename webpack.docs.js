@@ -43,6 +43,7 @@ module.exports = {
 	devtool: false,
 	devServer: {
 		contentBase: common.production + '/kit/',
+		compress: true
 	},
 	module: {
 		rules: [
@@ -63,6 +64,7 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
+							allChunks: true,
 							// you can specify a publicPath here
 							// by default it use publicPath in webpackOptions.output
 							publicPath: '../'
