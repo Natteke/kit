@@ -40,7 +40,7 @@ class Functions extends React.Component {
 						<p>Or</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								&lt;button onClick="this.modal.hide()"&gt;CLOSE&lt;/button&gt;
+								&lt;button data-trigger='MyModalName' onClick="this.modal.hide()"&gt;CLOSE&lt;/button&gt;
 							</CodeHighlight>
 						</div>
 						<h3 className={s["h3"]}>.addTrigger(element / '.selector')</h3>
