@@ -17,6 +17,10 @@ class Installation extends React.Component {
 					<div className={b.col}>
 						<h1 className={s.h1}>Installation</h1>
 						<p>Quick guide how to setup Kit.Locker</p>
+						<Note>
+							If you have any <b>fixed elements</b> on page, please add them 'kit-set-fixed' class, to prevent them from jumping on scroll lock.
+							Im not searching for fixed elements automatically for performance reasons.
+						</Note>
 						<h2 className={s.h2}>Styles</h2>
 						<p>
 							First things first. Styles in head, or inline.
