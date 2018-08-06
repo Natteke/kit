@@ -24,7 +24,7 @@ class Installation extends React.Component {
 						</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.css&quot;&gt;</span>
+								<span className={s.codeLine}>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/kit.modal.min.css&quot;&gt;</span>
 							</CodeHighlight>
 						</div>
 						<h3 className={s.h3}>Optional</h3>

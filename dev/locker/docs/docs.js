@@ -11,19 +11,17 @@ import b from '../../styles/bootstrap-grid.css';
 
 let Welcome = AsyncComponent(() =>  import('./items/Welcome.js'));
 let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
-let Options = AsyncComponent(() =>  import('./items/Options.js'));
 let Functions = AsyncComponent(() =>  import('./items/Functions.js'));
 
 
 let items = {};
 items['Welcome'] = <Welcome bootstrap={b}/>;
 items['Installation'] = <Installation bootstrap={b}/>;
-items['Options'] = <Options bootstrap={b}/>;
 items['Functions'] = <Functions bootstrap={b}/>;
 
 let list = [
 	{
-		items: ['Welcome','Installation','Options','Functions']
+		items: ['Welcome','Installation','Functions']
 	}
 ];
 

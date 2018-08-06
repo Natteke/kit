@@ -3,8 +3,8 @@ import '../../../../plugins/locker/kit.locker.js'
 import '../../../../plugins/locker/kit.locker.min.css'
 import StarButton from '../../../components/btn/StarButton.js'
 import s from '../../../styles/common.css';
-import CodeHighlight from 'code-highlight';
-import "highlight.js/styles/arduino-ligh-custom.css";
+// import CodeHighlight from 'code-highlight';
+// import "highlight.js/styles/arduino-ligh-custom.css";
 
 class Basic extends React.Component {
 	constructor(props){

@@ -55,7 +55,7 @@ class Functions extends React.Component {
 							</CodeHighlight>
 						</div>
 						<h2 className={s.h2}>Callbacks</h2>
-						<p>List of callbacks, which allows you to pass a function, and activate in on modal event</p>
+						<p>List of callbacks, which allows you to pass a function, and activate it on modal event</p>
 						<p>Pass callbacks as a option like this:</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
