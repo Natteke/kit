@@ -14,7 +14,6 @@ let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
 let Activation = AsyncComponent(() =>  import('./items/Activation.js'));
 let Options = AsyncComponent(() =>  import('./items/Options.js'));
 let Functions = AsyncComponent(() =>  import('./items/Functions.js'));
-let Templates = AsyncComponent(() =>  import('./items/Templates.js'));
 
 let items = {};
 items['Welcome'] = <Welcome bootstrap={b}/>;
@@ -22,11 +21,10 @@ items['Installation'] = <Installation bootstrap={b}/>;
 items['Activation'] = <Activation bootstrap={b}/>;
 items['Options'] = <Options bootstrap={b}/>;
 items['Functions'] = <Functions bootstrap={b}/>;
-items['Templates'] = <Templates bootstrap={b}/>;
 
 let list = [
 	{
-		items: ['Welcome','Installation','Activation','Options','Functions','Templates']
+		items: ['Welcome','Installation','Activation','Options','Functions']
 
 	}
 ];
