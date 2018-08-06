@@ -40,7 +40,7 @@ class Installation extends React.Component {
 						<p>Init a plugin</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								<span className={s.codeLine}>&lt;script&gt; kit.locker.createLocker() &lt;/script&gt;</span>
+								<span className={s.codeLine}>kit.locker.createLocker();</span>
 							</CodeHighlight>
 						</div>
 						<p>Or init and pass callbacks</p>
@@ -60,8 +60,8 @@ class Installation extends React.Component {
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
 									<span className={s.codeLine}>{
-									'\tkit.locker.lock()\n' +
-									'\tkit.locker.unlock\n'
+									'\tkit.locker.lock();\n' +
+									'\tkit.locker.unlock();\n'
 									}</span>
 							</CodeHighlight>
 						</div>
