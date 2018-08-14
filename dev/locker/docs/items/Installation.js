@@ -46,7 +46,7 @@ class Installation extends React.Component {
 						<p>Or init and pass callbacks</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
-									<span className={s.codeLine}>{'kit.locker.createModal({\n' +
+									<span className={s.codeLine}>{'kit.locker.createLocker({\n' +
 									'\tonLock: onScrollLock,\n' +
 									'\tonRelease: onScrollRelease,\n' +
 									'});'}</span>
