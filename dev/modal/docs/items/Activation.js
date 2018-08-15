@@ -35,7 +35,7 @@ class Installation extends React.Component {
 							The second one allows you to pass additional parameters to the Kit Modal.
 							Check out options tab, to learn more about adjusting Kit Modal up to your requirements.
 						</p>
-						<Note author={'Note'}>
+						<Note>
 						Names should be the same for each unique modal window.
 							<ul className={s.list}>
 								<li>kit.modal.createModal(<span className={s.highlight}>'Name'</span>)</li>
@@ -46,7 +46,7 @@ class Installation extends React.Component {
 						<p>
 							See example with 2 instances within one page in Demos.
 						</p>
-						<Note author={'Note'}>
+						<Note>
 							You can make unlimited different modals within one page, just like in pre-loader demo, there you can see 5 different instances in one screen.
 						</Note>
 					</div>

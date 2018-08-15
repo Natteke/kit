@@ -1,9 +1,15 @@
+.noteHeading {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
 .noteContainer {
-    padding: 20px;
+    padding: 10px 20px;
     margin-top: 30px;
     color: #333333;
     background-color: #f8f8f8;
     border-left: 5px deepskyblue solid;
+    line-height: 1.7
 }
 
 .noteContainer .noteAuthor {

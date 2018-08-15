@@ -64,12 +64,13 @@ class Installation extends React.Component {
 								&lt;button data-trigger='Name'&gt;Show Modal&lt;/button&gt;
 							</CodeHighlight>
 						</div>
-						<h3 className={s.h3}>Note</h3>
-						<p>You can play with markup as you want, but there always 2 conditions should be met</p>
-						<ul className={s.list}>
-							<li>Outer container should has <span className={s.highlight}>data-modal="NAME"</span> attribute and <span className={s.highlight}>"kit_modal"</span> class name.</li>
-							<li>Inner container should has <span className={s.highlight}>"modal_stage"</span> class name.</li>
-						</ul>
+						<Note>
+							<p>You can play with markup as you want, but there always 2 conditions should be met</p>
+							<ul className={s.list}>
+								<li>Outer container should has <span className={s.highlight}>data-modal="NAME"</span> attribute and <span className={s.highlight}>"kit_modal"</span> class name.</li>
+								<li>Inner container should has <span className={s.highlight}>"modal_stage"</span> class name.</li>
+							</ul>
+						</Note>
 						<h2 className={s.h2}>Javascript</h2>
 						<p>Connect source javascript just before yours script.</p>
 						<div className={s.codeContainer}>

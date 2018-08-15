@@ -163,7 +163,7 @@ class Loader extends React.Component {
 									{'let modal = document.kit.modal.circles; \n    modal.show();\n    // do some code \n    modal.hide();'}
 								</CodeHighlight>
 							</div>
-							<Note author={'Note'}>
+							<Note>
 								All this wonderful animations for Kit&nbsp;Loader was provided by Tobi&nbsp;Ahlin.
 							<br/>Subscribe Tobi on <a href="https://twitter.com/tobiasahlin">Twitter</a>, or check for more animations on his <a href="http://tobiasahlin.com/spinkit/">site</a>.
 							</Note>
