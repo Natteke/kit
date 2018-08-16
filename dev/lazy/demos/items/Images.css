@@ -1,0 +1,23 @@
+.image {
+    width: 100%;
+    height: 300px;
+    margin-top: 40px;
+    background: no-repeat center/cover;
+    transition: all ease-in-out 0.5s;
+}
+
+.image_mountains {
+    background-image: url("../../../images/lazy-demo/mountains-placeholder.jpg");
+}
+
+.image_highway {
+    background-image: url("../../../images/lazy-demo/highway-placeholder.jpg");
+}
+
+.image_mountains.loaded {
+    background-image: url("../../../images/lazy-demo/mountains.jpg");
+}
+
+.image_highway.loaded {
+    background-image: url("../../../images/lazy-demo/highway.jpg");
+}

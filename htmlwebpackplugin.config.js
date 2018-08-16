@@ -54,11 +54,28 @@ module.exports = (options) => {
 		{
 			title: 'Demos | Locker',
 			filename: output + 'locker/demos/index.html',
-			canonical: 'https://natteke.github.io/kit/modal/demos/',
+			canonical: 'https://natteke.github.io/kit/locker/demos/',
 			template: dev + 'templates/demos.template.html',
 			chunks: ['locker/demos/demos']
 
 		},
+		{
+			title: 'Docs | Lazy',
+			filename: output + 'lazy/docs/index.html',
+			canonical: 'https://natteke.github.io/kit/lazy/docs/',
+			template: dev + 'templates/docs.template.html',
+			chunks: ['lazy/docs/docs']
+
+		},
+		{
+			title: 'Demos | Lazy',
+			filename: output + 'lazy/demos/index.html',
+			canonical: 'https://natteke.github.io/kit/lazy/demos/',
+			template: dev + 'templates/demos.template.html',
+			chunks: ['lazy/demos/demos']
+
+		},
+
 	];
 
 	return pages.map((e) => new HtmlWebpackPlugin(Object.assign(e,defaults)));
