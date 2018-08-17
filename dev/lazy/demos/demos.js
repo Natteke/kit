@@ -10,21 +10,17 @@ import s from '../../styles/common.css';
 import b from '../../styles/bootstrap-grid.css';
 
 
-let Background = AsyncComponent(() =>  import('./items/Background.js'));
-let Images = AsyncComponent(() =>  import('./items/Images.js'));
-let Async = AsyncComponent(() =>  import('./items/Async.js'));
-
-let items = {};
-items['Background'] = <Background bootstrap={b}/>;
-items['Images'] = <Images bootstrap={b}/>;
-items['Async'] = <Async bootstrap={b}/>;
-
 let list = [
 	{
 		items: ['Images','Background','Async']
 
 	}
 ];
+
+let items = {};
+list[0].items.forEach((e) => {
+	items[e] = React.createElement(AsyncComponent(() =>  import('./items/' + e + '.js')),{bootstrap: {b}},null);
+});
 
 
 class Docs extends React.Component {
