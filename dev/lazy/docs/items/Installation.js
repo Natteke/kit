@@ -16,7 +16,32 @@ class Installation extends React.Component {
 				<div className={b.row}>
 					<div className={b.col}>
 						<h1 className={s.h1}>Installation</h1>
-						<p>Under Construction</p>
+						<Note>
+							If you are not familiar with lazy load, see the guide tab, to find out the core idea of lazy loading, and how to prepare your images before upload.
+						</Note>
+						<h2 className={s.h2}>Javascript</h2>
+						<p>Connect source javascript as usual.</p>
+						<div className={s.codeContainer}>
+							<CodeHighlight language="html">
+								<span className={s.codeLine}>&lt;script src=&quot;/js/kit.lazy.js&quot;&gt;&lt;/script&gt;</span>
+							</CodeHighlight>
+						</div>
+						<p>Init a plugin</p>
+						<div className={s.codeContainer}>
+							<CodeHighlight language="javascript">
+									<span className={s.codeLine}>{'kit.createLazy();'}</span>
+							</CodeHighlight>
+						</div>
+						<p>Or init and pass some params</p>
+						<div className={s.codeContainer}>
+							<CodeHighlight language="javascript">
+									<span className={s.codeLine}>{'kit.createLazy({\n' +
+									'\tsearchClass: newSearchClass,\n' +
+									'\tonReplace: callbackFunction,\n' +
+									'});'}</span>
+							</CodeHighlight>
+						</div>
+
 					</div>
 				</div>
 			</section>

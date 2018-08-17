@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../../plugins/lazy/kit.lazy.js'
 import s from '../../../styles/common.css';
-import i from './images.css';
+import i from '../../../styles/demo-images.css';
 import Note from '../../../components/Note';
 
 import mountains from "../../../images/lazy-demo/mountains.jpg";

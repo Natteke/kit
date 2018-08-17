@@ -9,21 +9,17 @@ import AsyncComponent from '../../components/AsyncComponent.js'
 import s from '../../styles/common.css';
 import b from '../../styles/bootstrap-grid.css';
 
-let Welcome = AsyncComponent(() =>  import('./items/Welcome.js'));
-let Installation = AsyncComponent(() =>  import('./items/Installation.js'));
-let Functions = AsyncComponent(() =>  import('./items/Functions.js'));
-
-
-let items = {};
-items['Welcome'] = <Welcome bootstrap={b}/>;
-items['Installation'] = <Installation bootstrap={b}/>;
-items['Functions'] = <Functions bootstrap={b}/>;
-
 let list = [
 	{
-		items: ['Welcome','Installation','Functions']
+		items: ['Welcome','Installation','Guide','Functions']
+
 	}
 ];
+
+let items = {};
+list[0].items.forEach((e) => {
+	items[e] = React.createElement(AsyncComponent(() =>  import('./items/' + e + '.js')),{bootstrap: {b}},null);
+});
 
 
 class Docs extends React.Component {

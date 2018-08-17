@@ -1,5 +1,4 @@
 import React from 'react';
-import Note from '../../../components/Note.js';
 import s from '../../../styles/common.css';
 
 

@@ -5,7 +5,7 @@ let Note = (props) => {
 	let author = props.author ? <p className={s.noteAuthor}>&mdash;{props.author}</p> : null;
 	return (
 		<div className={s.noteContainer}>
-			<div className={s.noteHeading}>Note</div>
+			{!props.note && <div className={s.noteHeading}>Note</div>}
 			<div className={s.noteText}>
 				{props.children}
 			</div>

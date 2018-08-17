@@ -2,11 +2,8 @@ import React from 'react';
 import '../../../../plugins/lazy/kit.lazy.js'
 import Button from '../../../components/btn/Button';
 import s from '../../../styles/common.css';
-import i from './images.css';
+import i from '../../../styles/demo-images.css';
 import Note from '../../../components/Note';
-
-import mountains from "../../../images/lazy-demo/mountains.jpg";
-import mountainsPlaceholder from "../../../images/lazy-demo/mountains-placeholder.jpg";
 import highway from "../../../images/lazy-demo/highway.jpg";
 import highwayPlaceholder from "../../../images/lazy-demo/highway-placeholder.jpg";
 
