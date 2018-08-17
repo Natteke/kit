@@ -73,10 +73,18 @@ class Welcome extends React.Component {
 								'}'}
 							</CodeHighlight>
 						</div>
+						<h3 className={s.h3}>Call the plugin</h3>
+						<div className={s.codeContainer}>
+							<CodeHighlight language="javascript">
+								<span className={s.codeLine}>{'kit.createLazy();'}</span>
+							</CodeHighlight>
+						</div>
 						<p>When the image hits the viewport, <span className={s.highlight}>kit-lazy</span> will add <span className={s.highlight}>loaded</span> class to the container, and placeholder will be changed to original image.</p>
 						<Note>
 							You can change <span className={s.highlight}>loaded</span> class, by passing another one as an <span className={s.highlight}>success</span> option, while initialisation.
 						</Note>
+
+
 						<h2 className={s.h2}>Tag images</h2>
 						<h3 className={s.h3}>Create image</h3>
 						<div className={s.codeContainer}>
@@ -86,6 +94,12 @@ class Welcome extends React.Component {
 								"src='/images/lazy-example-placeholder.jpg'\n" +
 								"data-src='/images/lazy-example.jpg'\n" +
 								"alt='Lazy Image'/>"}
+							</CodeHighlight>
+						</div>
+						<h3 className={s.h3}>Call the plugin</h3>
+						<div className={s.codeContainer}>
+							<CodeHighlight language="javascript">
+								<span className={s.codeLine}>{'kit.createLazy();'}</span>
 							</CodeHighlight>
 						</div>
 						<ul className={s.list}>

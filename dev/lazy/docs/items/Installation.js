@@ -26,13 +26,13 @@ class Installation extends React.Component {
 								<span className={s.codeLine}>&lt;script src=&quot;/js/kit.lazy.js&quot;&gt;&lt;/script&gt;</span>
 							</CodeHighlight>
 						</div>
-						<p>Init a plugin</p>
+						<p>Call the plugin</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
 									<span className={s.codeLine}>{'kit.createLazy();'}</span>
 							</CodeHighlight>
 						</div>
-						<p>Or init and pass some params</p>
+						<p>Or call and pass some params</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
 									<span className={s.codeLine}>{'kit.createLazy({\n' +
