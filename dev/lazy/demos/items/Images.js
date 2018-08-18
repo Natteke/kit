@@ -16,7 +16,8 @@ class Basic extends React.Component {
 
 	componentDidMount() {
 		kit.createLazy({
-			delay: 2000
+			delay: 2000,
+			success: i.loaded,
 		});
 	}
 

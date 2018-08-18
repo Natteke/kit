@@ -3,11 +3,12 @@ import s from '../../../styles/common.css';
 import i from '../../../styles/demo-images.css';
 import Note from '../../../components/Note';
 import '../../../../plugins/lazy/kit.lazy.js'
-import filesExample from "../../../images/lazy-demo/files-example.png";
 import CodeHighlight from 'code-highlight';
 import "highlight.js/styles/arduino-ligh-custom.css";
 import medium from "../../../images/lazy-demo/lazy-example.jpg";
 import mediumPlaceholder from "../../../images/lazy-demo/lazy-example-placeholder.jpg";
+import filesExample from "../../../images/lazy-demo/files-example.png";
+import filesExamplePlaceholder from "../../../images/lazy-demo/files-example-placeholder.jpg";
 
 
 
@@ -17,7 +18,9 @@ class Welcome extends React.Component {
 	}
 
 	componentDidMount() {
-		kit.createLazy();
+		kit.createLazy({
+			success: i.loaded
+		});
 	}
 
 	render() {
@@ -36,12 +39,12 @@ class Welcome extends React.Component {
 						<img className={['kit-lazy',i.image].join(' ')} src={mediumPlaceholder} data-src={medium} alt="A screenshot of the website Medium in the browsing, demonstrating lazy loading in action. The blurry placeholder is on the left, and the loaded resource is on the right."/>
 						<p>Approach is very simple, a placeholder image is loaded at page load (left), and when scrolled into the viewport, the final image loads at the time of need.</p>
 						<p>Speaking of an images, you should have something like this.</p>
-						<img className={[i.image].join(' ')} src={filesExample} alt="Example of files on PC"/>
+						<img className={['kit-lazy',i.image].join(' ')} src={filesExamplePlaceholder} data-src={filesExample} alt="Example of files on PC"/>
 						<h2 className={s.h2}>Background images</h2>
 						<h3 className={s.h3}>Create image container</h3>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="html">
-								<span className={s.codeLine}>&lt;div class=&quot;image image_mountains <span className={s.highlight}>kit-lazy</span>&quot;&gt;</span>
+								<span className={s.codeLine}>&lt;div class=&quot;image image_example <span className={s.highlight}>kit-lazy</span>&quot;&gt;</span>
 									<span className={s.code_levels}>Background Image Container</span>
 								<span className={s.codeLine}>&lt;/div&gt;</span>
 							</CodeHighlight>
@@ -61,15 +64,21 @@ class Welcome extends React.Component {
 								'    width: 100%;\n' +
 								'    height: 300px;\n' +
 								'    background: no-repeat center/cover;\n' +
+								'    \n' +
+								'    /* optional transition style */\n' +
+								'    filter: blur(20px);\n' +
 								'    transition: background-image ease-in-out 0.5s;\n' +
 								'}\n' +
 								'\n' +
-								'.image_mountains {\n' +
+								'.image_example {\n' +
 								'    background-image: url("/images/lazy-example-placeholder.jpg");\n' +
 								'}\n' +
 								'\n' +
-								'.image_mountains.loaded {\n' +
+								'.image_example.loaded {\n' +
 								'    background-image: url("/images/lazy-example.jpg");\n' +
+								'    \n' +
+								'    /* remove blur when image replaced */\n' +
+								'    filter: blur(0);\n' +
 								'}'}
 							</CodeHighlight>
 						</div>

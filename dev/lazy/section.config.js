@@ -1,6 +1,5 @@
-import '../../plugins/locker/kit.locker.zip';
+import '../../plugins/lazy/kit.lazy.zip';
 let config = {
-	// [2] true -> download (y/n)
 	headerLinks: [
 		// {
 		// 	name: 'Home',
