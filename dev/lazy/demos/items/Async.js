@@ -56,7 +56,7 @@ class Async extends React.Component {
 							<h1 className={s.h1}>Lazy Load</h1>
 							<h2 className={s.h2}>Asynchronous Lazy Loading</h2>
 							<Note>
-								In this demo-load was delayed for a 2 seconds so you can see the result, loader has no delay by default, but you can set it with options.
+								In this demo-load was <u>delayed for a 2 seconds</u> so you can see the result, loader has no delay by default, but you can set it with options.
 								<br/> Reload page to see demo again.
 							</Note>
 							<h2 className={s.h2}>IMG Tags</h2>

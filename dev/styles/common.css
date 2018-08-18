@@ -8,6 +8,11 @@
     line-height: 1.7;
 }
 
+u,
+.commonSection a {
+    text-decoration-skip-ink: none;
+}
+
 .commonSection a {
     color: deepskyblue;
     text-decoration: none;
@@ -15,7 +20,6 @@
 
 .commonSection a:hover {
     text-decoration: underline;
-    text-decoration-skip-ink: none;
 }
 
 .h1 {

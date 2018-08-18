@@ -3,7 +3,6 @@ import '../../../../plugins/lazy/kit.lazy.js'
 import s from '../../../styles/common.css';
 import i from '../../../styles/demo-images.css';
 import Note from '../../../components/Note';
-
 import mountains from "../../../images/lazy-demo/mountains.jpg";
 import mountainsPlaceholder from "../../../images/lazy-demo/mountains-placeholder.jpg";
 import highway from "../../../images/lazy-demo/highway.jpg";
@@ -31,7 +30,7 @@ class Basic extends React.Component {
 							<h1 className={s.h1}>Lazy Load</h1>
 							<h2 className={s.h2}>Tag images</h2>
 							<Note>
-								In this demo-load was delayed for a 2 seconds so you can see the result, loader has no delay by default, but you can set it with options.
+								In this demo-load was <u>delayed for a 2 seconds</u> so you can see the result, loader has no delay by default, but you can set it with options.
 							</Note>
 							<img className={[i.image, 'kit-lazy'].join(' ')} src={mountainsPlaceholder} data-src={mountains} alt=""/>
 							<img className={[i.image, 'kit-lazy'].join(' ')} src={highwayPlaceholder} data-src={highway} alt=""/>
