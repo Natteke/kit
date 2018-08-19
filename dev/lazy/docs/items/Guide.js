@@ -118,12 +118,15 @@ class Welcome extends React.Component {
 						</ul>
 						<p>When the image hits the viewport, <span className={s.highlight}>kit-lazy</span> will put link from <span className={s.highlight}>data-src</span> in to <span className={s.highlight}>src</span>, so the image will be replaced with the original one</p>
 						<h2 className={s.h2}>Asynchronous images loading</h2>
-						<p>Kit-lazy pretty flexible in this case, it using an array with all not-loaded images and pop them out of there, after they were loaded.</p>
+						<p>Kit-lazy pretty flexible in this case, it using an array with all not`-loaded images and pop them out of there, after they were loaded.</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
 								{/*asd*/}
-								<span className={s.codeLine}>{'/* ...Generate a new image with a placeholder */'}</span>
-								<span className={s.codeLine}>{'/* Tell kit.load to update it, when it hits the viewport */'}</span>
+								<span className={s.codeLine}>{'/* Generate a new image with a placeholder */'}</span>
+								<span className={s.codeLine}>{`let image = \'<img class="image kit-lazy" src="images/img-placeholder.jpg" data-src="images/img.jpg"/>'\n\n`}</span>
+								<span className={s.codeLine}>{'/* Append new image with placeholder in DOM */'}</span>
+								<span className={s.codeLine}>{'document.body.insertAdjacentHTML(\'beforeend\', image);\n\n'}</span>
+								<span className={s.codeLine}>{'/* Call the load() method to add that element in to working list */'}</span>
 								<span className={s.codeLine}>{'kit.lazy.load()'}</span>
 							</CodeHighlight>
 						</div>
