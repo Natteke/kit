@@ -22,14 +22,14 @@ let items = {
 		name: 'External',
 		path: './items/External.js',
 	},
-	Form: {
-		name: 'Form',
-		path: './items/Form.js',
-	},
-	Insider: {
-		name: 'Insider',
-		path: './items/Insider.js',
-	},
+	// Form: {
+	// 	name: 'Form',
+	// 	path: './items/Form.js',
+	// },
+	// Insider: {
+	// 	name: 'Insider',
+	// 	path: './items/Insider.js',
+	// },
 
 };
 

@@ -121,6 +121,9 @@ class Welcome extends React.Component {
 						<p>Kit-lazy pretty flexible in this case, it using an array with all not-loaded images and pop them out of there, after they were loaded.</p>
 						<div className={s.codeContainer}>
 							<CodeHighlight language="javascript">
+								{/*asd*/}
+								<span className={s.codeLine}>{'/* ...Generate a new image with a placeholder */'}</span>
+								<span className={s.codeLine}>{'/* Tell kit.load to update it, when it hits the viewport */'}</span>
 								<span className={s.codeLine}>{'kit.lazy.load()'}</span>
 							</CodeHighlight>
 						</div>

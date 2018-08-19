@@ -17,7 +17,7 @@ class Installation extends React.Component {
 					<div className={b.col}>
 						<h1 className={s.h1}>Installation</h1>
 						<Note>
-							If you are not familiar with lazy load, see the guide tab, to find out the core idea of lazy loading, and how to prepare your images before upload.
+							If you are not familiar with lazy load, see the <a href="#Guide">guide</a> tab, to find out the core idea of lazy loading, and how to prepare your images before upload.
 						</Note>
 						<h2 className={s.h2}>Javascript</h2>
 						<p>Connect source javascript as usual.</p>

@@ -28,7 +28,7 @@ let config = {
 			download: true
 		},
 	],
-	version : 'Kit Locker v1.0.0',
+	version : 'Kit Locker v1.0.2',
 	git: 'https://github.com/Natteke'
 };
 

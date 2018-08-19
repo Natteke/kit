@@ -5,7 +5,7 @@
 
     /* optional transition style */
     transition: all ease-in-out 0.2s;
-    filter: blur(20px);
+    filter: blur(10px);
 }
 
 .image.loaded {

@@ -57,6 +57,10 @@ class Docs extends React.Component {
 			});
 			setHash(lastComponentName);
 		}
+
+		window.addEventListener('hashchange', this.onHashChange)
+
+
 	}
 
 	componentDidUpdate() {
@@ -71,6 +75,17 @@ class Docs extends React.Component {
 			asideActive: element
 		});
 	};
+
+	onHashChange = () => {
+		if(location.hash && items[location.hash.substr(1)]) {
+			let hashComponentName = items[location.hash.substr(1)];
+			this.setState({
+				output: hashComponentName.component,
+				asideActive: hashComponentName
+			})
+		}
+	};
+
 
 	render() {
 		return (
