@@ -20,6 +20,7 @@ module.exports = {
 		'locker/demos/demos': common.dev + 'locker/demos/demos.js',
 		'lazy/docs/docs': common.dev + 'lazy/docs/docs.js',
 		'lazy/demos/demos': common.dev + 'lazy/demos/demos.js',
+
 	},
 	output: {
 		path: common.dist,
@@ -37,7 +38,7 @@ module.exports = {
 				include: common.dev,
 				loader: "babel-loader",
 				query: {
-					presets:['react', 'es2015', 'stage-2']
+					presets:['react', 'es2015','stage-2']
 				}
 			},
 			{

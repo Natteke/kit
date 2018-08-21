@@ -1,5 +1,5 @@
 # KIT WEBSITE
-This repository contains pages with information about KIT plugins
+This repository contains pages with documentation about KIT plugins
 
 ### Links
 * Kit Modal :tada: - https://natteke.github.io/kit/modal/demos/

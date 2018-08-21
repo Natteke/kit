@@ -33,6 +33,7 @@ class Welcome extends React.Component {
 						<Note note author={'Jeremy Wagner'}>
 							Lazy loading is technique that defers loading of non-critical resources at page load time. Instead, these non-critical resources are loaded at the moment of need.
 						</Note>
+						<p>This approach allows you to increase your page load speed, and save user's traffic, which is a <a href="https://www.dictionary.com/browse/good-thing">Good Thing</a></p>
 						<h2 className={s.h2}>Preparation</h2>
 						<p>First of all you will need an image, and its lightweight placeholder.</p>
 						<p>It could be a blurred and compressed image, or just a monochromatic color. <a target={'_blank'}	href="https://www.google.ru/search?q=forest+wallpaper+4k">Google&nbsp;images</a> uses the second approach. Reload the search page a couple of times, to see blinking colored squares, before image will be loaded.</p>

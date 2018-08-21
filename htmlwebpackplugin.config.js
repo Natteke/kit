@@ -75,7 +75,6 @@ module.exports = (options) => {
 			chunks: ['lazy/demos/demos']
 
 		},
-
 	];
 
 	return pages.map((e) => new HtmlWebpackPlugin(Object.assign(e,defaults)));
