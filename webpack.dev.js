@@ -1,25 +1,9 @@
-let path = require('path'),
-	common = {
-		mode: 'development',
-		dev: __dirname + '/dev/',
-		dist: __dirname + '/dist/',
-		production: __dirname + '/production/'
-	},
-	htmGeneratorConfig = require('./htmlwebpackplugin.config')(common);
-
+let path = require('path');
 
 module.exports = {
 	mode: 'development',
 	entry: {
 		// 'home': common.dev + 'home.js',
-		// 'modal/modal': common.dev + 'modal/modal.js',
-
-		'modal/docs/docs': common.dev + 'modal/docs/docs.js',
-		'modal/demos/demos': common.dev + 'modal/demos/demos.js',
-		'locker/docs/docs': common.dev + 'locker/docs/docs.js',
-		'locker/demos/demos': common.dev + 'locker/demos/demos.js',
-		'lazy/docs/docs': common.dev + 'lazy/docs/docs.js',
-		'lazy/demos/demos': common.dev + 'lazy/demos/demos.js',
 
 	},
 	output: {
@@ -29,7 +13,7 @@ module.exports = {
 		publicPath: '/kit'
 	},
 	devServer: {
-		contentBase: common.dist + '/kit',
+		contentBase: '/dev/kit',
 	},
 	module: {
 		rules: [
@@ -51,12 +35,6 @@ module.exports = {
 				include: __dirname + '/plugins',
 				loader: ['style-loader', 'css-loader']
 			},
-			{
-				test: /\.css$/,
-				include: __dirname + '/node_modules',
-				loader: ['style-loader', 'css-loader']
-			},
-
 			{
 				test: /\.(woff|woff2)$/,
 				use: [

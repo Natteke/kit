@@ -1,6 +1,7 @@
 
 .idea/
 node_modules/
+dev/
 .DS_Store
 .DS_Store
 .DS_Store
