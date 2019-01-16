@@ -40,19 +40,18 @@ class Options extends React.Component {
 							<br/>It's allows you easily to get Kit Modal from any inner elements, which is useful in creating buttons for example. (See Basic demo).
 						</p>
 						<p>Pass false as an option to disable it, or pass the string '.className', to chose elements, where you want to store links.</p>
-						<h3 className={s["h3-border"]}>Required</h3>
+						<h3 className={s["h3-border"]}>required</h3>
 						<ul className={s.list}>
 							<li>Type: boolean</li>
 							<li>Default: false</li>
 						</ul>
 						<p>Required window could be closed only using show() method.</p>
-						<h3 className={s["h3-border"]}>Position</h3>
+						<h3 className={s["h3-border"]}>absolute</h3>
 						<ul className={s.list}>
-							<li>Type: string</li>
-							<li>Default: fixed</li>
-							<li>Options: fixed/absolute</li>
+							<li>Type: boolean</li>
+							<li>Default: false</li>
 						</ul>
-						<p>Allows you to put modal window inside container.</p>
+						<p>Put HTML inside container, and add absolute flag, to make modal appear inside container instead of body</p>
 						<h3 className={s["h3-border"]}>lockScroll</h3>
 						<ul className={s.list}>
 							<li>Type: boolean</li>
