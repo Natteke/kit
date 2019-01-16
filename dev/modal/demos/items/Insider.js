@@ -6,7 +6,7 @@ import '../../../../plugins/modal/kit.modal.js';
 import '../../../../plugins/modal/kit.modal.min.css';
 import s from '../../../styles/common.css';
 // import CodeHighlight from 'code-highlight';
-// import "highlight.js/styles/arduino-ligh-custom.css";
+// import "../../../../node_modules/highlight.js/styles/arduino-light.css";
 
 
 class Form extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
-import "highlight.js/styles/arduino-ligh-custom.css";
+import "../../../../node_modules/highlight.js/styles/arduino-light.css";
 
 class Functions extends React.Component {
 	constructor(props) {

@@ -4,7 +4,7 @@ import i from '../../../styles/demo-images.css';
 import Note from '../../../components/Note';
 import '../../../../plugins/lazy/kit.lazy.js'
 import CodeHighlight from 'code-highlight';
-import "highlight.js/styles/arduino-ligh-custom.css";
+import "../../../../node_modules/highlight.js/styles/arduino-light.css";
 import medium from "../../../images/lazy-demo/lazy-example.jpg";
 import mediumPlaceholder from "../../../images/lazy-demo/lazy-example-placeholder.jpg";
 import filesExample from "../../../images/lazy-demo/files-example.png";

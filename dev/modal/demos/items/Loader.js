@@ -11,7 +11,7 @@ import '../../../../plugins/modal/templates/loader/kit.modal.loader-circles.css'
 import '../../../../plugins/modal/templates/loader/kit.modal.loader-spinner.css';
 import s from '../../../styles/common.css';
 import CodeHighlight from 'code-highlight';
-import "highlight.js/styles/arduino-ligh-custom.css";
+import "../../../../node_modules/highlight.js/styles/arduino-light.css";
 
 
 class Loader extends React.Component {
