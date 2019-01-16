@@ -40,7 +40,7 @@ class Options extends React.Component {
 							<br/>It's allows you easily to get Kit Modal from any inner elements, which is useful in creating buttons for example. (See Basic demo).
 						</p>
 						<p>Pass false as an option to disable it, or pass the string '.className', to chose elements, where you want to store links.</p>
-						<h3 className={s["h3-border"]}>absolute</h3>
+						<h3 className={s["h3-border"]}>Absolute</h3>
 						<ul className={s.list}>
 							<li>Type: boolean</li>
 							<li>Default: false</li>
