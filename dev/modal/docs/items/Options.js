@@ -19,6 +19,7 @@ class Options extends React.Component {
 							<li>Type: boolean</li>
 							<li>Default: false</li>
 						</ul>
+
 						<p>Required window could be closed only using hide() method.</p>
 						<h3 className={s["h3-border"]}>preventDefault</h3>
 						<ul className={s.list}>
@@ -46,6 +47,13 @@ class Options extends React.Component {
 							<li>Default: false</li>
 						</ul>
 						<p>Put HTML inside container, and add absolute flag, to make modal appear inside container instead of body</p>
+						<h3 className={s["h3-border"]}>focusStage</h3>
+						<ul className={s.list}>
+							<li>Type: boolean</li>
+							<li>Default: true</li>
+						</ul>
+						<p>Should focus be on stage after modal was shown?</p>
+
 						<h3 className={s["h3-border"]}>lockScroll</h3>
 						<ul className={s.list}>
 							<li>Type: boolean</li>
